@@ -1,78 +1,62 @@
+import random
 from mesa import Agent, Model
 from mesa.time import RandomActivation
 from mesa.space import MultiGrid
 from mesa.datacollection import DataCollector
-import matplotlib.pyplot as plt
 
-class VehicleAgent(Agent):
+class Veiculo(Agent):
     def __init__(self, unique_id, model):
         super().__init__(unique_id, model)
-        self.route = []
-
-    def request_route(self):
-        # Lógica para solicitar uma nova rota ao sistema
-        pass
-
-    def follow_route(self):
-        # Lógica para seguir a rota atribuída
-        pass
+        self.route_choice = random.choice(['Rota1', 'Rota2'])
 
     def step(self):
-        if not self.route:
-            self.request_route()
-        else:
-            self.follow_route()
+        pass
 
-class RequestAgent(Agent):
-    def __init__(self, unique_id, model, start, end):
+class Rota(Agent):
+    def __init__(self, unique_id, model, capacity):
         super().__init__(unique_id, model)
-        self.start = start
-        self.end = end
+        self.capacity = capacity
+        self.veiculos_na_fila = []
 
     def step(self):
-        # Lógica para processar a solicitação (pode incluir a alocação de veículos)
-        pass
+        if len(self.veiculos_na_fila) > 0 and self.capacity > 0:
+            veiculo = self.veiculos_na_fila.pop(0)
+            self.capacity -= 1
+            print(f"Veículo {veiculo.unique_id} escolheu {self.unique_id} e está usando a rota.")
+        else:
+            print(f"A rota {self.unique_id} está vazia ou atingiu a capacidade máxima.")
 
-class RouteModel(Model):
-    def __init__(self, width, height, num_vehicles, num_requests):
-        self.num_vehicles = num_vehicles
-        self.num_requests = num_requests
-        self.grid = MultiGrid(width, height, True)
+class SimulacaoModel(Model):
+    def __init__(self, num_veiculos, capacidade_rota):
+        self.num_veiculos = num_veiculos
+        self.capacidade_rota = capacidade_rota
         self.schedule = RandomActivation(self)
+        self.grid = MultiGrid(1, 2, True)
+
+        for i in range(self.num_veiculos):
+            veiculo = Veiculo(i, self)
+            self.schedule.add(veiculo)
+            x = random.choice([0, 1])
+            self.grid.place_agent(veiculo, (0, x))
+
+        for i in range(2):
+            rota = Rota(i+self.num_veiculos, self, self.capacidade_rota)
+            self.schedule.add(rota)
+            self.grid.place_agent(rota, (0, i))
+
         self.datacollector = DataCollector()
 
-        # Criar veículos
-        for i in range(self.num_vehicles):
-            agent = VehicleAgent(i, self)
-            x = self.random.randrange(self.grid.width)
-            y = self.random.randrange(self.grid.height)
-            self.grid.place_agent(agent, (x, y))
-            self.schedule.add(agent)
-
-        # Criar solicitações
-        for i in range(self.num_requests):
-            start = (self.random.randrange(self.grid.width), self.random.randrange(self.grid.height))
-            end = (self.random.randrange(self.grid.width), self.random.randrange(self.grid.height))
-            request = RequestAgent(i + self.num_vehicles, self, start, end)
-            self.grid.place_agent(request, start)
-            self.schedule.add(request)
-
     def step(self):
-        self.datacollector.collect(self)
         self.schedule.step()
+        self.datacollector.collect(self)
 
-# Configurações do modelo
-width = 10
-height = 10
-num_vehicles = 5
-num_requests = 10
+# Parâmetros da simulação
+num_veiculos = 10
+capacidade_rota = 3
+num_steps = 5
 
-# Criar o modelo
-model = RouteModel(width, height, num_vehicles, num_requests)
-
-# Executar a simulação por alguns passos de tempo
-for i in range(50):
-    model.step()
-
-# Visualizar os resultados (por exemplo, posição dos veículos, solicitações atendidas, etc.)
-# Implemente métodos específicos de visualização conforme necessário.
+# Criar e executar a simulação
+simulacao = SimulacaoModel(num_veiculos, capacidade_rota)
+for step in range(num_steps):
+    print(f"\nPasso de simulação: {step}")
+    simulacao.step()

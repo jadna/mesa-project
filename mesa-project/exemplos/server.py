@@ -1,10 +1,11 @@
 import mesa
 from model import AgentModel
+from teste import RouteModel
+from rota import RoadNetworkModel
+
 
 
 def agent_portrayal(agent):
-
-    #Função que desenha do tabuleiro dos agentes
     portrayal = {"Shape": "rect", "Filled": "true", "w": 0.5, "h":0.3}
     portrayal["Color"] = "red"
     portrayal["Layer"] = 0
@@ -20,6 +21,7 @@ def agent_portrayal(agent):
 
 
 grid = mesa.visualization.CanvasGrid(agent_portrayal, 10, 10, 500, 500)
+
 
 """model_params = {
     "num_agents": mesa.visualization.Slider(
@@ -55,7 +57,7 @@ model_params = {
 }
 
 
-#Chama a função do model para controlar os agentes
+
 server = mesa.visualization.ModularServer(
     RoadNetworkModel, [grid], "Car Model", model_params
 )
