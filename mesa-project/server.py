@@ -1,5 +1,5 @@
 import mesa
-from model import AgentModel
+from model import SystemModel
 
 
 def agent_portrayal(agent):
@@ -21,31 +21,11 @@ def agent_portrayal(agent):
 
 grid = mesa.visualization.CanvasGrid(agent_portrayal, 10, 10, 500, 500)
 
-"""model_params = {
-    "num_agents": mesa.visualization.Slider(
-        "Number of agents",
-        2,
-        2,
-        200,
-        1,
-        description="Choose how many agents to include in the model",
-    ),
-    "width": 10,
-    "height": 10,
-}"""
 model_params = {
-    "num_vehicles": mesa.visualization.Slider(
-        "Number of agents",
-        2,
-        2,
-        200,
+    "N": mesa.visualization.Slider(
+        "Number of vehicles (agents)",
         1,
-        description="Choose how many agents to include in the model",
-    ),
-    "num_requests": mesa.visualization.Slider(
-        "Number of requests",
-        2,
-        2,
+        1,
         200,
         1,
         description="Choose how many agents to include in the model",
@@ -55,9 +35,10 @@ model_params = {
 }
 
 
+
 #Chama a função do model para controlar os agentes
 server = mesa.visualization.ModularServer(
-    RoadNetworkModel, [grid], "Car Model", model_params
+    SystemModel, [grid], "Car Model", model_params
 )
 server.port = 8522
 
