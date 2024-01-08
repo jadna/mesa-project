@@ -40,6 +40,6 @@ model_params = {
 server = mesa.visualization.ModularServer(
     SystemModel, [grid], "Car Model", model_params
 )
-server.port = 8522
+server.port = 8523
 
 server.launch(open_browser=True)
