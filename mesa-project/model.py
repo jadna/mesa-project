@@ -42,7 +42,7 @@ class SystemModel(Model):
         if self.schedule.steps % self.next_creation == 0:
             test = self.createVehicle()
             
-            Route.accept_vehicle(self.schedule.agents)
+            #Route.accept_vehicle(self.schedule.agents)
 
         
         """if self.schedule.steps >= 4:

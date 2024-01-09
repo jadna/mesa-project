@@ -14,7 +14,7 @@ class Vehicle(Agent):
 
     def step(self):
 
-        if self.pos[0]+self.speed > self.model.grid.width-1:
+        if (self.pos[0] + self.speed) > (self.model.grid.width - 1):
             print("AQUI")
             return
         if self.pos[0] < 5 and self.unique_id == 0:

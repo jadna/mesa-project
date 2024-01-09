@@ -1,7 +1,6 @@
 import mesa
 
 
-
 class Route():
 
     def __init__(self, capacity=5, route_length=3):
