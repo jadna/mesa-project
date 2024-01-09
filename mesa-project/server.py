@@ -9,6 +9,7 @@ def agent_portrayal(agent):
     portrayal["Color"] = "red"
     portrayal["Layer"] = 0
 
+
     """if agent.wealth > 0:
         portrayal["Color"] = "red"
         portrayal["Layer"] = 0
@@ -19,7 +20,7 @@ def agent_portrayal(agent):
     return portrayal
 
 
-grid = mesa.visualization.CanvasGrid(agent_portrayal, 10, 10, 500, 500)
+grid = mesa.visualization.CanvasGrid(agent_portrayal, 40, 10, 800, 500)
 
 model_params = {
     "N": mesa.visualization.Slider(

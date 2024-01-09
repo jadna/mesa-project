@@ -4,6 +4,7 @@ from mesa.space import MultiGrid, ContinuousSpace
 from mesa.datacollection import DataCollector
 import random
 from agent import Vehicle
+from routes import Route
 
 random.seed(10)
 
@@ -13,8 +14,7 @@ class SystemModel(Model):
     def __init__(self, N, width, height, routes_info=0):
         self.num_vehicle = N
         self.routes_info = routes_info
-        self.grid = MultiGrid(width, height, False)
-        #self.grid = ContinuousSpace(width, height, True)
+        self.grid = MultiGrid(width, height, True)
         self.schedule = RandomActivation(self)
         self.max_id = 0
         self.next_creation = random.randint(1, 10) #tempo de criação dos veiculos na fila
@@ -31,6 +31,8 @@ class SystemModel(Model):
         self.grid.place_agent(vehicle, (0, 5))
         self.schedule.add(vehicle) #adiciona os carros (agentes) no scheduler
         self.max_id +=1
+        
+        return vehicle
 
     def step(self):
 
@@ -38,7 +40,10 @@ class SystemModel(Model):
 
         #cria os veículos a cada x segundos
         if self.schedule.steps % self.next_creation == 0:
-            self.createVehicle()
+            test = self.createVehicle()
+            
+            Route.accept_vehicle(self.schedule.agents)
+
         
         """if self.schedule.steps >= 4:
            self.running = False 
