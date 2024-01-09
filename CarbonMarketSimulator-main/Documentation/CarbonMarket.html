@@ -1,0 +1,1916 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>CarbonMarket API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>CarbonMarket</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from mesa import Model, Agent
+
+class CustomModel(Model):
+    &#34;&#34;&#34;
+    A class used to represent an agent-based carbon simulation model
+
+    Attributes
+    ----------
+    participants : list
+        a list of objects of the Participant class agent type
+    regulators : list
+        a list of objects of the Regulator class agent type
+    nSteps : int
+        number that chronologically identifies the current step of the model
+    initialEmissions : int
+        initial value in tonnes of CO2 emited by the system
+&#34;&#34;&#34;
+    
+    def __str__(self):
+        &#34;&#34;&#34;Prints information about the model and its agents&#34;&#34;&#34;
+        
+        string = &#34;\n*--------------------------------------*\nModel with: \n&#34; + str(len(self.participants)) + &#34; Participant(s)\n&#34; + str(len(self.regulators)) + &#34; Regulator(s)\n&#34;
+        for regulator in self.regulators:
+            participantsList = []
+            for participant in regulator.myParticipants:
+                participantsList.append(participant.unique_id)
+            participantsList = [str(int) for int in participantsList]
+            string += &#34;Regulator &#34; + str(regulator.unique_id) + &#34; regulates participants &#34; + &#39;, &#39;.join(participantsList) + &#34;.\n&#34;
+
+        for participant in self.participants:
+            string += &#34;Participant &#34; + str(participant.unique_id) + &#34; has &#34; + str(participant.Credits) + &#34; credits and emits &#34; + str(participant.Emissions) + &#34; tonnes of CO2.\n&#34;
+            
+        string += &#34;*--------------------------------------*\n&#34;
+        return string
+
+    def __init__(self):
+        &#34;&#34;&#34;Model constructor&#34;&#34;&#34;
+        
+        self.participants = []
+        self.regulators = []
+        self.nSteps = 0
+        self.initialEmissions = 0
+      
+    def step(self):  
+        &#34;&#34;&#34;     Advances the model by one step&#34;&#34;&#34;
+        if self.nSteps == 0:
+            self.initialEmissions = 0
+            for participant in self.participants:
+                self.initialEmissions += participant.Emissions
+                
+        self.nSteps += 1
+        for regulator in self.regulators:
+            regulator.run(self.nSteps)            
+        
+    # add Participant agent to model
+    # +participantProperties = &#34;Type&#34;, &#34;Price Reasoning&#34;, &#34;Initial Price&#34;
+    # +attributes: custom variables
+    def addParticipant(self, participantProperties, attributes):
+        &#34;&#34;&#34;Adds a Participant agent to model according to a set of properties and attributes&#34;&#34;&#34;
+        
+        count = len(self.participants) + 100
+        participant = Participant(self, count, participantProperties, attributes)
+        self.participants.append(participant)
+    
+    # add Participant agent to model
+    # receives Participant agent object
+    def addParticipantObject(self, participantObject):
+        &#34;&#34;&#34;Adds a Participant agent object to model&#34;&#34;&#34;
+        
+        count = len(self.participants) + 100
+        participantObject.unique_id = count
+        self.participants.append(participantObject)
+        
+        
+    # add multiple Participant agents to model
+    # receives +list of participantProperties and +list of attributes
+    def addMultipleParticipants(self, participantsPropertiesList, attributesList):
+        &#34;&#34;&#34;Adds multiple Participant agents to model according to a set of properties and attributes&#34;&#34;&#34;
+        
+        for count, participantProperties in enumerate(participantsPropertiesList):
+            self.addParticipant(participantProperties,attributesList[count])
+    
+    def addMultipleParticipantsObject(self, participantsObjectList):
+        &#34;&#34;&#34;Adds multiple Participant agent objects to model&#34;&#34;&#34;
+        
+        for participantObject in participantsObjectList:
+            self.addParticipantObject(participantObject)
+    
+    # add Regulator agent to model
+    # +regulatorProperties = 
+    # +whoRegulates = &#34;All&#34; or list of Participant agents id
+    def addRegulator(self, regulatorProperties, whoRegulates = &#34;All&#34;):
+        &#34;&#34;&#34;Adds a Regulator agent to model according to a set of properties&#34;&#34;&#34;
+        
+        count = len(self.regulators) + 1
+        regulator = Regulator(count, regulatorProperties, self)
+        self.regulators.append(regulator)
+        
+        listToRegulate = []
+        if whoRegulates == &#34;All&#34;:
+            listToRegulate = self.participants
+        else:
+            for participant in self.participants:
+                if participant.unique_id in whoRegulates:
+                    listToRegulate.append(participant)
+            
+        for participant in listToRegulate:
+            self.addParticipantRegulatorRelationship(participant.unique_id, regulator.unique_id)
+            
+        self.regulators.sort(key=lambda x: x.priority)
+        
+    # add Participant agent to model
+    # receives Participant agent object
+    def addRegulatorObject(self, regulatorObject, whoRegulates = &#34;All&#34;):
+        &#34;&#34;&#34;Adds a Regulator agent object to model&#34;&#34;&#34;
+        
+        count = len(self.regulators) + 1
+        regulator = regulatorObject
+        regulatorObject.unique_id = count
+        self.regulators.append(regulator)
+        
+        listToRegulate = []
+        if whoRegulates == &#34;All&#34;:
+            listToRegulate = self.participants
+        else:
+            for participant in self.participants:
+                if participant.unique_id in whoRegulates:
+                    listToRegulate.append(participant)
+            
+        for participant in listToRegulate:
+            self.addParticipantRegulatorRelationship(participant.unique_id, regulator.unique_id)
+            
+        self.regulators.sort(key=lambda x: x.priority)
+        
+        
+    # adds regulatory relationship
+    # receives +Participant agent id and +Regulator agent id
+    def addParticipantRegulatorRelationship(self, participantID, regulatorID):        
+        &#34;&#34;&#34;Establishes a regulatory relationship between a Participant agent and a Regulator agent&#34;&#34;&#34;
+        
+        for participant in self.participants:
+            if participant.unique_id == participantID:
+                myParticipant = participant
+                break
+        for regulator in self.regulators:
+            if regulator.unique_id == regulatorID:
+                myRegulator = regulator
+                break
+        try:
+            participant.addRegulator(myRegulator)
+            regulator.addParticipant(myParticipant)
+        except:
+            print(&#34;ERROR: Wrong relationships.&#34;)
+        
+        
+    # adds CoordinationMechanism to Regulator agent
+    # receives +Regulator agent id, +sequence number by which it will be run and +mechanismProperties
+    # mechanismProperties = &#34;Mechanism Type&#34;           
+    def addMechanismToRegulator(self, regulatorID, mechanismProperties, sequence):
+        &#34;&#34;&#34;Assigns a CoordinationMechanism to a Regulator agent according to a set of mechanism properties&#34;&#34;&#34;
+        
+        for regulator in self.regulators:
+            if regulator.unique_id == regulatorID:
+                mechanism = CoordinationMechanism(mechanismProperties, sequence, regulator)
+                regulator.addMechanism(mechanism)
+    
+    # adds CoordinationMechanism object to Regulator agent
+    # receives CoordinationMechanism object
+    def addMechanismObjectToRegulator(self, regulatorID, mechanismObject):
+        &#34;&#34;&#34;Assigns a CoordinationMechanism object to a Regulator agent&#34;&#34;&#34;
+        
+        for regulator in self.regulators:
+            if regulator.unique_id == regulatorID:
+                regulator.addMechanism(mechanismObject)
+        
+    # adds Incentive to Regulator agent
+    # receives: +Regulator agent id
+    # +condition that Participant agents have to comply with to receive an +incentive
+    # +condition[&#34;Frequency&#34;] = &#34;First Time&#34; or &#34;Every Time&#34; (the incentive is run every step or only during the initial step?)
+    # +condition[&#34;Type&#34;] = &#34;By Periodicity&#34; or &#34;By Value&#34; (the incentive is run periodically, or only if the agents fulfill a certain condition?)
+    # +condition[&#34;Attribute Name&#34;] = Attribute name of the agent to be compared in the condition 
+    # +condition[&#34;Comparator&#34;] = &#34;More Than&#34; or &#34;Less Than&#34;
+    # +condition[&#34;Reference Value&#34;] = Value that the attribute will be compared with
+    # +incentive can be either positive or negative
+    # +incentive[&#34;Attribute&#34;] = Attribute name
+    # +incentive[&#34;Value&#34;] = Positive or negative value to increment to designated attribute
+    # +order = &#34;Before&#34; or &#34;After&#34; mechanism stage
+    def addIncentiveToRegulator(self, regulatorID, condition, incentive, order = &#34;Before&#34;):
+        &#34;&#34;&#34;Assigns an Incentive to a Regulator agent according to a set of rules&#34;&#34;&#34;
+        
+        incentive = Incentive(condition, incentive, order)
+        for regulator in self.regulators:
+            if regulator.unique_id == regulatorID:
+                regulator.addIncentive(incentive)
+                    
+                                
+class Participant(Agent):
+    &#34;&#34;&#34;
+    A class used to represent a participant agent in a carbon market model.
+
+    Attributes
+    ----------
+    myRegulators : list
+        a list of objects of the Regulator class agent type that regulate the agent
+    type : str
+        type of the agent
+    priceReasoning : str
+        logic by which the agent will define its price for a certain tradable token. Can either be &#34;Fixed Price&#34; or &#34;Price Function&#34;
+    myPrice : int 
+        current price of an unit of a tradable token in the conception of the agent
+    hasDecision : bool
+        defines if the agent has to perform a decision before the CoordinationMechanism stage or not
+    &#34;&#34;&#34; 
+      
+    def __init__(self, model, participantID, participantProperties, initialAttributes):
+        &#34;&#34;&#34;Participant agent constructor&#34;&#34;&#34;
+        
+        super().__init__(participantID, model)   
+        self.myRegulators = []
+        self.type = participantProperties[&#34;Type&#34;]
+        self.priceReasoning = participantProperties[&#34;Price Reasoning&#34;]
+        self.myPrice = participantProperties[&#34;Initial Price&#34;] #fixed price or initial price
+        self.hasDecision = participantProperties[&#34;Decision&#34;]
+                        
+        for attributeName in initialAttributes:
+            setattr(self, attributeName, initialAttributes[attributeName])
+        
+    def addRegulator(self, regulator):
+        &#34;&#34;&#34;Defines a regulator to the Participant agent&#34;&#34;&#34;
+        self.myRegulators.append(regulator)
+            
+    #virtual method
+    def priceFunction(self):
+        &#34;&#34;&#34;Results in a price for a unit of tradable token (Virtual method)&#34;&#34;&#34;
+        raise NotImplementedError()
+        
+    def decision(self):
+        &#34;&#34;&#34;Method to be implemented if the agents has to perform a certain action before the CoordinationMechanism stage (Virtual method)&#34;&#34;&#34;
+        raise NotImplementedError()
+            
+    def getBid(self):
+        &#34;&#34;&#34;Results in an auction bid&#34;&#34;&#34;
+        
+        price = self.getBidPrice()
+        volume = self.getBidVolume()
+        bid = {&#39;buyerId&#39;: self.unique_id, &#39;bidPrice&#39;: price, &#39;bidVolume&#39;: volume}
+        return bid
+        
+    def getBidPrice(self):
+        &#34;&#34;&#34;Returns the price of an unit in an auction bid according to the designated price logic in the constructor&#34;&#34;&#34;
+        
+        if self.priceReasoning == &#34;Fixed Price&#34;:
+            return self.myPrice
+        elif self.priceReasoning == &#34;Price Function&#34;:
+            return self.priceFunction() 
+        else:
+            print(&#34;ERROR: Wrong price reasoning.&#34;)
+            return False
+        
+    def getBidVolume(self):
+        &#34;&#34;&#34;Returns the quantity that the agent is willing to trade&#34;&#34;&#34;
+        
+        return (self.Emissions - self.Credits)
+        
+    def isBidding(self):
+        &#34;&#34;&#34;Informs if the agent is willing to bid in an auction or not&#34;&#34;&#34;
+        
+        return (self.Emissions &gt; self.Credits)
+                
+    def changeAttribute(self, attributeName, value):
+        &#34;&#34;&#34;Increments or decrements a custom attribute by a certain value&#34;&#34;&#34;
+        
+        newValue = getattr(self, attributeName) + int(value)
+        setattr(self, attributeName, newValue)
+                
+                
+class Regulator(Agent):
+    &#34;&#34;&#34;
+    A class used to represent a regulator agent in a carbon market simulation model.
+
+    Attributes
+    ----------
+    priority : int
+        a value that establishes the order by which Regulator agent actions will be executed
+    myParticipants : list
+        list of Participant agents being regulated by this agent
+    myMechanisms : list
+        list of CoordinationMechanism to be executed by this agent
+    myIncentivesBefore : list
+        list of Incenive to be executed before the CoordinationMechanism stage
+    myIncentivesAfter : list
+        list of Incenive to be executed before the CoordinationMechanism stage
+    &#34;&#34;&#34;
+            
+    def __init__(self, regulatorID, regulatorProperties, model):
+        &#34;&#34;&#34;Regulator agent constructor&#34;&#34;&#34;
+        
+        super().__init__(regulatorID, model)
+        self.priority = regulatorProperties[&#34;Priority&#34;]
+        self.myParticipants = []
+        self.myMechanisms = []
+        self.myIncentivesBefore = []
+        self.myIncentivesAfter = []
+        
+    def addParticipant(self, participant):
+        &#34;&#34;&#34;Defines a regulatory relationship with a Participant agent&#34;&#34;&#34;
+        
+        self.myParticipants.append(participant)
+        
+    def addMechanism(self, mechanism):
+        &#34;&#34;&#34;Adds a CoordinationMechanism to be executed by this agent&#34;&#34;&#34;
+        
+        self.myMechanisms.append(mechanism)
+        self.myMechanisms.sort(key=lambda x: x.sequence)
+        
+    #incentives can be given either before or after the coordination mechanism phase        
+    def addIncentive(self, incentive):
+        &#34;&#34;&#34;Adds an Incentive to be executed by this agent&#34;&#34;&#34;
+        
+        if incentive.order == &#34;Before&#34;:
+            self.myIncentivesBefore.append(incentive)
+        elif incentive.order == &#34;After&#34;:
+            self.myIncentivesAfter.append(incentive)
+        else:
+            print(&#34;ERROR: Wrong incentive order.&#34;)
+            
+    def getSellingVolume(self):
+        &#34;&#34;&#34;Determines the quantity of tradable tokens to be sold during a single step by the Regulator&#34;&#34;&#34;
+        
+        return self.model.initialEmissions * 0.9
+        
+    def run(self, step):
+        &#34;&#34;&#34;Executes Incentive(s), Participant agents&#39; decisions and CoordinationMechanism(s) that are related ONLY with its own Partipant(s)   &#34;&#34;&#34;
+        
+        for incentive in self.myIncentivesBefore:
+                for participant in self.myParticipants:
+                    if incentive.checkCondition(participant, step):
+                        participant.changeAttribute(incentive.getAttribute(), incentive.getValue())
+                        
+        for participant in self.myParticipants:
+            if participant.hasDecision:
+                participant.decision()
+                        
+        for mechanism in self.myMechanisms:
+            mechanism.run(self.myParticipants)
+            
+        for incentive in self.myIncentivesAfter:
+                for participant in self.myParticipants:
+                    if incentive.checkCondition(participant, step):
+                        participant.changeAttribute(incentive.getAttribute(), incentive.getValue())
+                
+                
+class Incentive():
+    &#34;&#34;&#34;
+    A class used to represent an Incentive policy in a carbon market simulation model.
+
+    Attributes
+    ----------
+    condition : dict(str)
+        condition that has to be fulfilled for the incentive to be applied. condition[&#34;Frequency&#34;] can either be &#34;Every Time&#34; or &#34;First Time&#34; (the incentive is run every step or only during the initial step?). condition[&#34;Type&#34;] can either be &#34;By Periodicity&#34; or &#34;By Value&#34; (the incentive is run periodically, or only if the agents fulfill a certain condition?).     # +condition[&#34;Attribute Name&#34;] = Attribute name of the agent to be compared in the condition. condition[&#34;Comparator&#34;] can either be &#34;More Than&#34; or &#34;Less Than&#34;. condition[&#34;Reference Value&#34;] is the value that the attribute will be compared with
+    incentive : dict(str|int)
+        incentive to be given if the condition is fulfilled. incentive[&#34;Attribute&#34;] is the name of the agent&#39;s attribute to be changed. incentive[&#34;Value&#34;] is the positive or negative value to be incremented or decremented to the attribute.
+    order : str
+        tells if the incentive is to be run before or after the CoordinationMechanism stage.
+&#34;&#34;&#34;
+    
+    def __init__(self, condition, incentive, order):  
+        &#34;&#34;&#34;Incentive constructor&#34;&#34;&#34;
+        
+        self.condition = condition
+        self.incentive = incentive
+        self.order = order
+    
+    def checkCondition(self, participant, step):
+        &#34;&#34;&#34;Checks if a certain participant fulfills the defined condition &#34;&#34;&#34;
+        
+        if self.condition[&#34;Frequency&#34;] == &#34;First Time&#34;:
+            if step != 1:
+                return False
+        elif self.condition[&#34;Frequency&#34;] != &#34;Every Time&#34;:
+            print(&#34;ERROR: Wrong condition frequency.&#34;)
+            return False
+        
+        if self.condition[&#34;Type&#34;] == &#34;By Periodicity&#34;:
+            return True
+        elif self.condition[&#34;Type&#34;] == &#34;By Value&#34;:
+            try:
+                attributeValue = getattr(participant, self.condition[&#34;Attribute Name&#34;])
+            except:
+                print(&#34;ERROR: Wrong condition attribute.&#34;)
+                return False
+            if self.condition[&#34;Comparator&#34;] == &#34;More Than&#34;:
+                return (attributeValue &gt;= int(self.condition[&#34;Reference Value&#34;]))
+            elif self.condition[&#34;Comparator&#34;] == &#34;Less Than&#34;:
+                return (attributeValue &lt; int(self.condition[&#34;Reference Value&#34;]))
+        else:
+            print(&#34;ERROR: Wrong condition type.&#34;)
+            return False
+        
+    def getValue(self):
+        return self.incentive[&#34;Value&#34;]
+        
+    def getAttribute(self):
+        return self.incentive[&#34;Attribute&#34;]
+                    
+                
+class CoordinationMechanism():
+    &#34;&#34;&#34;
+    A class used to represent a Coordination Mechanism in a carbon market simulation model.
+
+    Attributes
+    ----------
+    regulatorParent : object
+        regulator of this mechanism
+    type: str
+        type of the CoordinationMechanism. Can either be an &#34;Auction&#34;, a &#34;Market&#34; or a &#34;Collective Choice&#34;
+    sequence : int
+        order by which the CoordinationMechanism should be run in relation with other CoordinationMechanisms
+        &#34;&#34;&#34;
+    
+    def __init__(self, mechanismProperties, sequence, regulator):
+        &#34;&#34;&#34;CoordinationMechanism constructor&#34;&#34;&#34;
+        
+        self.regulatorParent = regulator
+        self.type = mechanismProperties[&#34;Mechanism Type&#34;]
+        self.sequence = sequence
+        
+        if self.type == &#34;Auction&#34;:
+            self.auctionType = mechanismProperties[&#34;Auction Type&#34;]
+        elif self.type == &#34;Market&#34;:
+            pass
+        elif self.type == &#34;Collective Choice&#34;:
+            pass
+        else:
+            print(&#34;ERROR: Wrong Mechanism Type.&#34;)
+        
+    def run(self, participants):
+        &#34;&#34;&#34;Executes the CoordinationMechanism, involving a set of Participant agents&#34;&#34;&#34;
+        
+        if self.type == &#34;Auction&#34;:
+            if self.auctionType == &#34;Blind&#34;:
+                bids = []   
+                successfulBids = []
+                
+                for participant in participants:
+                    if (participant.isBidding()):
+                        bids.append(participant.getBid())
+                bids.sort(reverse=True, key=self.orderByBidPrice)
+            
+                sellingVolume = self.regulatorParent.getSellingVolume()
+                unitsSold = 0
+                minPrice = 0
+                flag = False
+                for bid in bids:
+                    unitsSold += bid[&#39;bidVolume&#39;]
+                    if unitsSold &gt;= sellingVolume:
+                        bid[&#39;bidVolume&#39;] = bid[&#39;bidVolume&#39;] - (unitsSold - sellingVolume)
+                        minPrice = bid[&#39;bidPrice&#39;]
+                        flag = True
+                        successfulBids.append(bid)
+                        break
+                    successfulBids.append(bid)
+                    minPrice = bid[&#39;bidPrice&#39;]
+                    flag = True
+                
+                if(flag):
+                    self.clearingPrice = minPrice
+                    
+                print(successfulBids)
+                
+                for bid in successfulBids:
+                    participants[bid[&#39;buyerId&#39;] - 100].changeAttribute(&#34;Credits&#34;, bid[&#39;bidVolume&#39;])
+                
+            elif self.type == &#34;Market&#34;:
+                raise NotImplementedError()
+            elif self.type == &#34;Collective Choice&#34;:
+                raise NotImplementedError()
+                
+    def orderByBidPrice(self, d):
+        return d[&#39;bidPrice&#39;]
+    
+    
+class CustomParticipant(Participant):
+    
+    def __init__(self, model, participantID, participantProperties, initialAttributes):
+        super().__init__(model, participantID, participantProperties, initialAttributes)
+        
+    def priceFunction(self):
+        return 100
+        
+
+
+myModel = CustomModel()
+myModel.addMultipleParticipants([{&#34;Type&#34;: &#34;Corporation&#34;, &#34;Price Reasoning&#34;: &#34;Fixed Price&#34;, &#34;Initial Price&#34;: 10, &#34;Decision&#34;: False},
+                           {&#34;Type&#34;: &#34;Corporation&#34;, &#34;Price Reasoning&#34;: &#34;Fixed Price&#34;, &#34;Initial Price&#34;: 10, &#34;Decision&#34;: False},
+                           {&#34;Type&#34;: &#34;Corporation&#34;, &#34;Price Reasoning&#34;: &#34;Fixed Price&#34;, &#34;Initial Price&#34;: 10, &#34;Decision&#34;: False},
+                           {&#34;Type&#34;: &#34;Corporation&#34;, &#34;Price Reasoning&#34;: &#34;Fixed Price&#34;, &#34;Initial Price&#34;: 10, &#34;Decision&#34;: False},
+                           {&#34;Type&#34;: &#34;Corporation&#34;, &#34;Price Reasoning&#34;: &#34;Fixed Price&#34;, &#34;Initial Price&#34;: 10, &#34;Decision&#34;: False},
+                           {&#34;Type&#34;: &#34;Corporation&#34;, &#34;Price Reasoning&#34;: &#34;Fixed Price&#34;, &#34;Initial Price&#34;: 10, &#34;Decision&#34;: False},
+                           {&#34;Type&#34;: &#34;Corporation&#34;, &#34;Price Reasoning&#34;: &#34;Fixed Price&#34;, &#34;Initial Price&#34;: 10, &#34;Decision&#34;: False}],
+                                [{&#34;Credits&#34;:0, &#34;Emissions&#34;:180},
+                                 {&#34;Credits&#34;:0, &#34;Emissions&#34;:180},
+                                 {&#34;Credits&#34;:0, &#34;Emissions&#34;:140},
+                                 {&#34;Credits&#34;:0, &#34;Emissions&#34;:90},
+                                 {&#34;Credits&#34;:0, &#34;Emissions&#34;:120},
+                                 {&#34;Credits&#34;:0, &#34;Emissions&#34;:100},
+                                 {&#34;Credits&#34;:0, &#34;Emissions&#34;:190}])
+
+myCustomParticipant = CustomParticipant(myModel, 120, {&#34;Type&#34;: &#34;Corporation&#34;, &#34;Price Reasoning&#34;: &#34;Price Function&#34;, &#34;Initial Price&#34;: 10, &#34;Decision&#34;: False}, {&#34;Credits&#34;:0, &#34;Emissions&#34;:300})
+myModel.addParticipantObject(myCustomParticipant)
+#Mecanismo de compra e venda
+#Utilities para os participants 
+
+myModel.addRegulator({&#34;Priority&#34;: 1}, [100,101,102,103,104,105,106,107])
+
+
+myModel.addIncentiveToRegulator(1,
+                                {&#34;Frequency&#34;:&#34;First Time&#34;, &#34;Type&#34;:&#34;By Periodicity&#34;, &#34;Attribute Name&#34;:&#34;&#34;, &#34;Comparator&#34;:&#34;&#34;, &#34;Reference Value&#34;: &#34;&#34;},
+                                {&#34;Attribute&#34;:&#34;Credits&#34;, &#34;Value&#34;:&#34;0&#34;},
+                                &#34;Before&#34;)
+
+myModel.addIncentiveToRegulator(1,
+                                {&#34;Frequency&#34;:&#34;Every Time&#34;, &#34;Type&#34;:&#34;By Value&#34;, &#34;Attribute Name&#34;:&#34;Credits&#34;, &#34;Comparator&#34;:&#34;Less Than&#34;, &#34;Reference Value&#34;: &#34;60&#34;},
+                                {&#34;Attribute&#34;:&#34;Credits&#34;, &#34;Value&#34;:&#34;0&#34;},
+                                &#34;After&#34;)
+
+myModel.addMechanismToRegulator(1, {&#34;Unit&#34;: &#34;Credits&#34;,
+                                    &#34;Who Sells&#34;: &#34;Participants&#34;,
+                                    &#34;Seller Type&#34;: &#34;&#34;,
+                                    &#34;Who Buys&#34;: &#34;Regulator&#34;,
+                                    &#34;Buyer Type&#34;: &#34;&#34;,
+                                    &#34;Mechanism Type&#34;: &#34;Auction&#34;,
+                                    &#34;Auction Type&#34;: &#34;Blind&#34;}, 1)
+            
+print(myModel)
+myModel.step()
+print(myModel)
+            
+    </code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="CarbonMarket.CoordinationMechanism"><code class="flex name class">
+<span>class <span class="ident">CoordinationMechanism</span></span>
+<span>(</span><span>mechanismProperties, sequence, regulator)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class used to represent a Coordination Mechanism in a carbon market simulation model.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>regulatorParent</code></strong> :&ensp;<code>object</code></dt>
+<dd>regulator of this mechanism</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>type of the CoordinationMechanism. Can either be an "Auction", a "Market" or a "Collective Choice"</dd>
+<dt><strong><code>sequence</code></strong> :&ensp;<code>int</code></dt>
+<dd>order by which the CoordinationMechanism should be run in relation with other CoordinationMechanisms</dd>
+</dl>
+<p>CoordinationMechanism constructor</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CoordinationMechanism():
+    &#34;&#34;&#34;
+    A class used to represent a Coordination Mechanism in a carbon market simulation model.
+
+    Attributes
+    ----------
+    regulatorParent : object
+        regulator of this mechanism
+    type: str
+        type of the CoordinationMechanism. Can either be an &#34;Auction&#34;, a &#34;Market&#34; or a &#34;Collective Choice&#34;
+    sequence : int
+        order by which the CoordinationMechanism should be run in relation with other CoordinationMechanisms
+        &#34;&#34;&#34;
+    
+    def __init__(self, mechanismProperties, sequence, regulator):
+        &#34;&#34;&#34;CoordinationMechanism constructor&#34;&#34;&#34;
+        
+        self.regulatorParent = regulator
+        self.type = mechanismProperties[&#34;Mechanism Type&#34;]
+        self.sequence = sequence
+        
+        if self.type == &#34;Auction&#34;:
+            self.auctionType = mechanismProperties[&#34;Auction Type&#34;]
+        elif self.type == &#34;Market&#34;:
+            pass
+        elif self.type == &#34;Collective Choice&#34;:
+            pass
+        else:
+            print(&#34;ERROR: Wrong Mechanism Type.&#34;)
+        
+    def run(self, participants):
+        &#34;&#34;&#34;Executes the CoordinationMechanism, involving a set of Participant agents&#34;&#34;&#34;
+        
+        if self.type == &#34;Auction&#34;:
+            if self.auctionType == &#34;Blind&#34;:
+                bids = []   
+                successfulBids = []
+                
+                for participant in participants:
+                    if (participant.isBidding()):
+                        bids.append(participant.getBid())
+                bids.sort(reverse=True, key=self.orderByBidPrice)
+            
+                sellingVolume = self.regulatorParent.getSellingVolume()
+                unitsSold = 0
+                minPrice = 0
+                flag = False
+                for bid in bids:
+                    unitsSold += bid[&#39;bidVolume&#39;]
+                    if unitsSold &gt;= sellingVolume:
+                        bid[&#39;bidVolume&#39;] = bid[&#39;bidVolume&#39;] - (unitsSold - sellingVolume)
+                        minPrice = bid[&#39;bidPrice&#39;]
+                        flag = True
+                        successfulBids.append(bid)
+                        break
+                    successfulBids.append(bid)
+                    minPrice = bid[&#39;bidPrice&#39;]
+                    flag = True
+                
+                if(flag):
+                    self.clearingPrice = minPrice
+                    
+                print(successfulBids)
+                
+                for bid in successfulBids:
+                    participants[bid[&#39;buyerId&#39;] - 100].changeAttribute(&#34;Credits&#34;, bid[&#39;bidVolume&#39;])
+                
+            elif self.type == &#34;Market&#34;:
+                raise NotImplementedError()
+            elif self.type == &#34;Collective Choice&#34;:
+                raise NotImplementedError()
+                
+    def orderByBidPrice(self, d):
+        return d[&#39;bidPrice&#39;]</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="CarbonMarket.CoordinationMechanism.orderByBidPrice"><code class="name flex">
+<span>def <span class="ident">orderByBidPrice</span></span>(<span>self, d)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def orderByBidPrice(self, d):
+    return d[&#39;bidPrice&#39;]</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.CoordinationMechanism.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>self, participants)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Executes the CoordinationMechanism, involving a set of Participant agents</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(self, participants):
+    &#34;&#34;&#34;Executes the CoordinationMechanism, involving a set of Participant agents&#34;&#34;&#34;
+    
+    if self.type == &#34;Auction&#34;:
+        if self.auctionType == &#34;Blind&#34;:
+            bids = []   
+            successfulBids = []
+            
+            for participant in participants:
+                if (participant.isBidding()):
+                    bids.append(participant.getBid())
+            bids.sort(reverse=True, key=self.orderByBidPrice)
+        
+            sellingVolume = self.regulatorParent.getSellingVolume()
+            unitsSold = 0
+            minPrice = 0
+            flag = False
+            for bid in bids:
+                unitsSold += bid[&#39;bidVolume&#39;]
+                if unitsSold &gt;= sellingVolume:
+                    bid[&#39;bidVolume&#39;] = bid[&#39;bidVolume&#39;] - (unitsSold - sellingVolume)
+                    minPrice = bid[&#39;bidPrice&#39;]
+                    flag = True
+                    successfulBids.append(bid)
+                    break
+                successfulBids.append(bid)
+                minPrice = bid[&#39;bidPrice&#39;]
+                flag = True
+            
+            if(flag):
+                self.clearingPrice = minPrice
+                
+            print(successfulBids)
+            
+            for bid in successfulBids:
+                participants[bid[&#39;buyerId&#39;] - 100].changeAttribute(&#34;Credits&#34;, bid[&#39;bidVolume&#39;])
+            
+        elif self.type == &#34;Market&#34;:
+            raise NotImplementedError()
+        elif self.type == &#34;Collective Choice&#34;:
+            raise NotImplementedError()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="CarbonMarket.CustomModel"><code class="flex name class">
+<span>class <span class="ident">CustomModel</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class used to represent an agent-based carbon simulation model</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>participants</code></strong> :&ensp;<code>list</code></dt>
+<dd>a list of objects of the Participant class agent type</dd>
+<dt><strong><code>regulators</code></strong> :&ensp;<code>list</code></dt>
+<dd>a list of objects of the Regulator class agent type</dd>
+<dt><strong><code>nSteps</code></strong> :&ensp;<code>int</code></dt>
+<dd>number that chronologically identifies the current step of the model</dd>
+<dt><strong><code>initialEmissions</code></strong> :&ensp;<code>int</code></dt>
+<dd>initial value in tonnes of CO2 emited by the system</dd>
+</dl>
+<p>Model constructor</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CustomModel(Model):
+    &#34;&#34;&#34;
+    A class used to represent an agent-based carbon simulation model
+
+    Attributes
+    ----------
+    participants : list
+        a list of objects of the Participant class agent type
+    regulators : list
+        a list of objects of the Regulator class agent type
+    nSteps : int
+        number that chronologically identifies the current step of the model
+    initialEmissions : int
+        initial value in tonnes of CO2 emited by the system
+&#34;&#34;&#34;
+    
+    def __str__(self):
+        &#34;&#34;&#34;Prints information about the model and its agents&#34;&#34;&#34;
+        
+        string = &#34;\n*--------------------------------------*\nModel with: \n&#34; + str(len(self.participants)) + &#34; Participant(s)\n&#34; + str(len(self.regulators)) + &#34; Regulator(s)\n&#34;
+        for regulator in self.regulators:
+            participantsList = []
+            for participant in regulator.myParticipants:
+                participantsList.append(participant.unique_id)
+            participantsList = [str(int) for int in participantsList]
+            string += &#34;Regulator &#34; + str(regulator.unique_id) + &#34; regulates participants &#34; + &#39;, &#39;.join(participantsList) + &#34;.\n&#34;
+
+        for participant in self.participants:
+            string += &#34;Participant &#34; + str(participant.unique_id) + &#34; has &#34; + str(participant.Credits) + &#34; credits and emits &#34; + str(participant.Emissions) + &#34; tonnes of CO2.\n&#34;
+            
+        string += &#34;*--------------------------------------*\n&#34;
+        return string
+
+    def __init__(self):
+        &#34;&#34;&#34;Model constructor&#34;&#34;&#34;
+        
+        self.participants = []
+        self.regulators = []
+        self.nSteps = 0
+        self.initialEmissions = 0
+      
+    def step(self):  
+        &#34;&#34;&#34;     Advances the model by one step&#34;&#34;&#34;
+        if self.nSteps == 0:
+            self.initialEmissions = 0
+            for participant in self.participants:
+                self.initialEmissions += participant.Emissions
+                
+        self.nSteps += 1
+        for regulator in self.regulators:
+            regulator.run(self.nSteps)            
+        
+    # add Participant agent to model
+    # +participantProperties = &#34;Type&#34;, &#34;Price Reasoning&#34;, &#34;Initial Price&#34;
+    # +attributes: custom variables
+    def addParticipant(self, participantProperties, attributes):
+        &#34;&#34;&#34;Adds a Participant agent to model according to a set of properties and attributes&#34;&#34;&#34;
+        
+        count = len(self.participants) + 100
+        participant = Participant(self, count, participantProperties, attributes)
+        self.participants.append(participant)
+    
+    # add Participant agent to model
+    # receives Participant agent object
+    def addParticipantObject(self, participantObject):
+        &#34;&#34;&#34;Adds a Participant agent object to model&#34;&#34;&#34;
+        
+        count = len(self.participants) + 100
+        participantObject.unique_id = count
+        self.participants.append(participantObject)
+        
+        
+    # add multiple Participant agents to model
+    # receives +list of participantProperties and +list of attributes
+    def addMultipleParticipants(self, participantsPropertiesList, attributesList):
+        &#34;&#34;&#34;Adds multiple Participant agents to model according to a set of properties and attributes&#34;&#34;&#34;
+        
+        for count, participantProperties in enumerate(participantsPropertiesList):
+            self.addParticipant(participantProperties,attributesList[count])
+    
+    def addMultipleParticipantsObject(self, participantsObjectList):
+        &#34;&#34;&#34;Adds multiple Participant agent objects to model&#34;&#34;&#34;
+        
+        for participantObject in participantsObjectList:
+            self.addParticipantObject(participantObject)
+    
+    # add Regulator agent to model
+    # +regulatorProperties = 
+    # +whoRegulates = &#34;All&#34; or list of Participant agents id
+    def addRegulator(self, regulatorProperties, whoRegulates = &#34;All&#34;):
+        &#34;&#34;&#34;Adds a Regulator agent to model according to a set of properties&#34;&#34;&#34;
+        
+        count = len(self.regulators) + 1
+        regulator = Regulator(count, regulatorProperties, self)
+        self.regulators.append(regulator)
+        
+        listToRegulate = []
+        if whoRegulates == &#34;All&#34;:
+            listToRegulate = self.participants
+        else:
+            for participant in self.participants:
+                if participant.unique_id in whoRegulates:
+                    listToRegulate.append(participant)
+            
+        for participant in listToRegulate:
+            self.addParticipantRegulatorRelationship(participant.unique_id, regulator.unique_id)
+            
+        self.regulators.sort(key=lambda x: x.priority)
+        
+    # add Participant agent to model
+    # receives Participant agent object
+    def addRegulatorObject(self, regulatorObject, whoRegulates = &#34;All&#34;):
+        &#34;&#34;&#34;Adds a Regulator agent object to model&#34;&#34;&#34;
+        
+        count = len(self.regulators) + 1
+        regulator = regulatorObject
+        regulatorObject.unique_id = count
+        self.regulators.append(regulator)
+        
+        listToRegulate = []
+        if whoRegulates == &#34;All&#34;:
+            listToRegulate = self.participants
+        else:
+            for participant in self.participants:
+                if participant.unique_id in whoRegulates:
+                    listToRegulate.append(participant)
+            
+        for participant in listToRegulate:
+            self.addParticipantRegulatorRelationship(participant.unique_id, regulator.unique_id)
+            
+        self.regulators.sort(key=lambda x: x.priority)
+        
+        
+    # adds regulatory relationship
+    # receives +Participant agent id and +Regulator agent id
+    def addParticipantRegulatorRelationship(self, participantID, regulatorID):        
+        &#34;&#34;&#34;Establishes a regulatory relationship between a Participant agent and a Regulator agent&#34;&#34;&#34;
+        
+        for participant in self.participants:
+            if participant.unique_id == participantID:
+                myParticipant = participant
+                break
+        for regulator in self.regulators:
+            if regulator.unique_id == regulatorID:
+                myRegulator = regulator
+                break
+        try:
+            participant.addRegulator(myRegulator)
+            regulator.addParticipant(myParticipant)
+        except:
+            print(&#34;ERROR: Wrong relationships.&#34;)
+        
+        
+    # adds CoordinationMechanism to Regulator agent
+    # receives +Regulator agent id, +sequence number by which it will be run and +mechanismProperties
+    # mechanismProperties = &#34;Mechanism Type&#34;           
+    def addMechanismToRegulator(self, regulatorID, mechanismProperties, sequence):
+        &#34;&#34;&#34;Assigns a CoordinationMechanism to a Regulator agent according to a set of mechanism properties&#34;&#34;&#34;
+        
+        for regulator in self.regulators:
+            if regulator.unique_id == regulatorID:
+                mechanism = CoordinationMechanism(mechanismProperties, sequence, regulator)
+                regulator.addMechanism(mechanism)
+    
+    # adds CoordinationMechanism object to Regulator agent
+    # receives CoordinationMechanism object
+    def addMechanismObjectToRegulator(self, regulatorID, mechanismObject):
+        &#34;&#34;&#34;Assigns a CoordinationMechanism object to a Regulator agent&#34;&#34;&#34;
+        
+        for regulator in self.regulators:
+            if regulator.unique_id == regulatorID:
+                regulator.addMechanism(mechanismObject)
+        
+    # adds Incentive to Regulator agent
+    # receives: +Regulator agent id
+    # +condition that Participant agents have to comply with to receive an +incentive
+    # +condition[&#34;Frequency&#34;] = &#34;First Time&#34; or &#34;Every Time&#34; (the incentive is run every step or only during the initial step?)
+    # +condition[&#34;Type&#34;] = &#34;By Periodicity&#34; or &#34;By Value&#34; (the incentive is run periodically, or only if the agents fulfill a certain condition?)
+    # +condition[&#34;Attribute Name&#34;] = Attribute name of the agent to be compared in the condition 
+    # +condition[&#34;Comparator&#34;] = &#34;More Than&#34; or &#34;Less Than&#34;
+    # +condition[&#34;Reference Value&#34;] = Value that the attribute will be compared with
+    # +incentive can be either positive or negative
+    # +incentive[&#34;Attribute&#34;] = Attribute name
+    # +incentive[&#34;Value&#34;] = Positive or negative value to increment to designated attribute
+    # +order = &#34;Before&#34; or &#34;After&#34; mechanism stage
+    def addIncentiveToRegulator(self, regulatorID, condition, incentive, order = &#34;Before&#34;):
+        &#34;&#34;&#34;Assigns an Incentive to a Regulator agent according to a set of rules&#34;&#34;&#34;
+        
+        incentive = Incentive(condition, incentive, order)
+        for regulator in self.regulators:
+            if regulator.unique_id == regulatorID:
+                regulator.addIncentive(incentive)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>mesa.model.Model</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="CarbonMarket.CustomModel.random"><code class="name">var <span class="ident">random</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="CarbonMarket.CustomModel.addIncentiveToRegulator"><code class="name flex">
+<span>def <span class="ident">addIncentiveToRegulator</span></span>(<span>self, regulatorID, condition, incentive, order='Before')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Assigns an Incentive to a Regulator agent according to a set of rules</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addIncentiveToRegulator(self, regulatorID, condition, incentive, order = &#34;Before&#34;):
+    &#34;&#34;&#34;Assigns an Incentive to a Regulator agent according to a set of rules&#34;&#34;&#34;
+    
+    incentive = Incentive(condition, incentive, order)
+    for regulator in self.regulators:
+        if regulator.unique_id == regulatorID:
+            regulator.addIncentive(incentive)</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.CustomModel.addMechanismObjectToRegulator"><code class="name flex">
+<span>def <span class="ident">addMechanismObjectToRegulator</span></span>(<span>self, regulatorID, mechanismObject)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Assigns a CoordinationMechanism object to a Regulator agent</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addMechanismObjectToRegulator(self, regulatorID, mechanismObject):
+    &#34;&#34;&#34;Assigns a CoordinationMechanism object to a Regulator agent&#34;&#34;&#34;
+    
+    for regulator in self.regulators:
+        if regulator.unique_id == regulatorID:
+            regulator.addMechanism(mechanismObject)</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.CustomModel.addMechanismToRegulator"><code class="name flex">
+<span>def <span class="ident">addMechanismToRegulator</span></span>(<span>self, regulatorID, mechanismProperties, sequence)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Assigns a CoordinationMechanism to a Regulator agent according to a set of mechanism properties</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addMechanismToRegulator(self, regulatorID, mechanismProperties, sequence):
+    &#34;&#34;&#34;Assigns a CoordinationMechanism to a Regulator agent according to a set of mechanism properties&#34;&#34;&#34;
+    
+    for regulator in self.regulators:
+        if regulator.unique_id == regulatorID:
+            mechanism = CoordinationMechanism(mechanismProperties, sequence, regulator)
+            regulator.addMechanism(mechanism)</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.CustomModel.addMultipleParticipants"><code class="name flex">
+<span>def <span class="ident">addMultipleParticipants</span></span>(<span>self, participantsPropertiesList, attributesList)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds multiple Participant agents to model according to a set of properties and attributes</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addMultipleParticipants(self, participantsPropertiesList, attributesList):
+    &#34;&#34;&#34;Adds multiple Participant agents to model according to a set of properties and attributes&#34;&#34;&#34;
+    
+    for count, participantProperties in enumerate(participantsPropertiesList):
+        self.addParticipant(participantProperties,attributesList[count])</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.CustomModel.addMultipleParticipantsObject"><code class="name flex">
+<span>def <span class="ident">addMultipleParticipantsObject</span></span>(<span>self, participantsObjectList)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds multiple Participant agent objects to model</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addMultipleParticipantsObject(self, participantsObjectList):
+    &#34;&#34;&#34;Adds multiple Participant agent objects to model&#34;&#34;&#34;
+    
+    for participantObject in participantsObjectList:
+        self.addParticipantObject(participantObject)</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.CustomModel.addParticipant"><code class="name flex">
+<span>def <span class="ident">addParticipant</span></span>(<span>self, participantProperties, attributes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds a Participant agent to model according to a set of properties and attributes</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addParticipant(self, participantProperties, attributes):
+    &#34;&#34;&#34;Adds a Participant agent to model according to a set of properties and attributes&#34;&#34;&#34;
+    
+    count = len(self.participants) + 100
+    participant = Participant(self, count, participantProperties, attributes)
+    self.participants.append(participant)</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.CustomModel.addParticipantObject"><code class="name flex">
+<span>def <span class="ident">addParticipantObject</span></span>(<span>self, participantObject)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds a Participant agent object to model</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addParticipantObject(self, participantObject):
+    &#34;&#34;&#34;Adds a Participant agent object to model&#34;&#34;&#34;
+    
+    count = len(self.participants) + 100
+    participantObject.unique_id = count
+    self.participants.append(participantObject)</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.CustomModel.addParticipantRegulatorRelationship"><code class="name flex">
+<span>def <span class="ident">addParticipantRegulatorRelationship</span></span>(<span>self, participantID, regulatorID)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Establishes a regulatory relationship between a Participant agent and a Regulator agent</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addParticipantRegulatorRelationship(self, participantID, regulatorID):        
+    &#34;&#34;&#34;Establishes a regulatory relationship between a Participant agent and a Regulator agent&#34;&#34;&#34;
+    
+    for participant in self.participants:
+        if participant.unique_id == participantID:
+            myParticipant = participant
+            break
+    for regulator in self.regulators:
+        if regulator.unique_id == regulatorID:
+            myRegulator = regulator
+            break
+    try:
+        participant.addRegulator(myRegulator)
+        regulator.addParticipant(myParticipant)
+    except:
+        print(&#34;ERROR: Wrong relationships.&#34;)</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.CustomModel.addRegulator"><code class="name flex">
+<span>def <span class="ident">addRegulator</span></span>(<span>self, regulatorProperties, whoRegulates='All')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds a Regulator agent to model according to a set of properties</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addRegulator(self, regulatorProperties, whoRegulates = &#34;All&#34;):
+    &#34;&#34;&#34;Adds a Regulator agent to model according to a set of properties&#34;&#34;&#34;
+    
+    count = len(self.regulators) + 1
+    regulator = Regulator(count, regulatorProperties, self)
+    self.regulators.append(regulator)
+    
+    listToRegulate = []
+    if whoRegulates == &#34;All&#34;:
+        listToRegulate = self.participants
+    else:
+        for participant in self.participants:
+            if participant.unique_id in whoRegulates:
+                listToRegulate.append(participant)
+        
+    for participant in listToRegulate:
+        self.addParticipantRegulatorRelationship(participant.unique_id, regulator.unique_id)
+        
+    self.regulators.sort(key=lambda x: x.priority)</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.CustomModel.addRegulatorObject"><code class="name flex">
+<span>def <span class="ident">addRegulatorObject</span></span>(<span>self, regulatorObject, whoRegulates='All')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds a Regulator agent object to model</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addRegulatorObject(self, regulatorObject, whoRegulates = &#34;All&#34;):
+    &#34;&#34;&#34;Adds a Regulator agent object to model&#34;&#34;&#34;
+    
+    count = len(self.regulators) + 1
+    regulator = regulatorObject
+    regulatorObject.unique_id = count
+    self.regulators.append(regulator)
+    
+    listToRegulate = []
+    if whoRegulates == &#34;All&#34;:
+        listToRegulate = self.participants
+    else:
+        for participant in self.participants:
+            if participant.unique_id in whoRegulates:
+                listToRegulate.append(participant)
+        
+    for participant in listToRegulate:
+        self.addParticipantRegulatorRelationship(participant.unique_id, regulator.unique_id)
+        
+    self.regulators.sort(key=lambda x: x.priority)</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.CustomModel.step"><code class="name flex">
+<span>def <span class="ident">step</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Advances the model by one step</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def step(self):  
+    &#34;&#34;&#34;     Advances the model by one step&#34;&#34;&#34;
+    if self.nSteps == 0:
+        self.initialEmissions = 0
+        for participant in self.participants:
+            self.initialEmissions += participant.Emissions
+            
+    self.nSteps += 1
+    for regulator in self.regulators:
+        regulator.run(self.nSteps)            </code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="CarbonMarket.CustomParticipant"><code class="flex name class">
+<span>class <span class="ident">CustomParticipant</span></span>
+<span>(</span><span>model, participantID, participantProperties, initialAttributes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class used to represent a participant agent in a carbon market model.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>myRegulators</code></strong> :&ensp;<code>list</code></dt>
+<dd>a list of objects of the Regulator class agent type that regulate the agent</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>type of the agent</dd>
+<dt><strong><code>priceReasoning</code></strong> :&ensp;<code>str</code></dt>
+<dd>logic by which the agent will define its price for a certain tradable token. Can either be "Fixed Price" or "Price Function"</dd>
+<dt><strong><code>myPrice</code></strong> :&ensp;<code>int </code></dt>
+<dd>current price of an unit of a tradable token in the conception of the agent</dd>
+<dt><strong><code>hasDecision</code></strong> :&ensp;<code>bool</code></dt>
+<dd>defines if the agent has to perform a decision before the CoordinationMechanism stage or not</dd>
+</dl>
+<p>Participant agent constructor</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CustomParticipant(Participant):
+    
+    def __init__(self, model, participantID, participantProperties, initialAttributes):
+        super().__init__(model, participantID, participantProperties, initialAttributes)
+        
+    def priceFunction(self):
+        return 100</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="CarbonMarket.Participant" href="#CarbonMarket.Participant">Participant</a></li>
+<li>mesa.agent.Agent</li>
+</ul>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="CarbonMarket.Participant" href="#CarbonMarket.Participant">Participant</a></b></code>:
+<ul class="hlist">
+<li><code><a title="CarbonMarket.Participant.addRegulator" href="#CarbonMarket.Participant.addRegulator">addRegulator</a></code></li>
+<li><code><a title="CarbonMarket.Participant.changeAttribute" href="#CarbonMarket.Participant.changeAttribute">changeAttribute</a></code></li>
+<li><code><a title="CarbonMarket.Participant.decision" href="#CarbonMarket.Participant.decision">decision</a></code></li>
+<li><code><a title="CarbonMarket.Participant.getBid" href="#CarbonMarket.Participant.getBid">getBid</a></code></li>
+<li><code><a title="CarbonMarket.Participant.getBidPrice" href="#CarbonMarket.Participant.getBidPrice">getBidPrice</a></code></li>
+<li><code><a title="CarbonMarket.Participant.getBidVolume" href="#CarbonMarket.Participant.getBidVolume">getBidVolume</a></code></li>
+<li><code><a title="CarbonMarket.Participant.isBidding" href="#CarbonMarket.Participant.isBidding">isBidding</a></code></li>
+<li><code><a title="CarbonMarket.Participant.priceFunction" href="#CarbonMarket.Participant.priceFunction">priceFunction</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="CarbonMarket.Incentive"><code class="flex name class">
+<span>class <span class="ident">Incentive</span></span>
+<span>(</span><span>condition, incentive, order)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class used to represent an Incentive policy in a carbon market simulation model.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>condition</code></strong> :&ensp;<code>dict(str)</code></dt>
+<dd>condition that has to be fulfilled for the incentive to be applied. condition["Frequency"] can either be "Every Time" or "First Time" (the incentive is run every step or only during the initial step?). condition["Type"] can either be "By Periodicity" or "By Value" (the incentive is run periodically, or only if the agents fulfill a certain condition?).
+# +condition["Attribute Name"] = Attribute name of the agent to be compared in the condition. condition["Comparator"] can either be "More Than" or "Less Than". condition["Reference Value"] is the value that the attribute will be compared with</dd>
+<dt><strong><code>incentive</code></strong> :&ensp;<code>dict(str|int)</code></dt>
+<dd>incentive to be given if the condition is fulfilled. incentive["Attribute"] is the name of the agent's attribute to be changed. incentive["Value"] is the positive or negative value to be incremented or decremented to the attribute.</dd>
+<dt><strong><code>order</code></strong> :&ensp;<code>str</code></dt>
+<dd>tells if the incentive is to be run before or after the CoordinationMechanism stage.</dd>
+</dl>
+<p>Incentive constructor</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Incentive():
+    &#34;&#34;&#34;
+    A class used to represent an Incentive policy in a carbon market simulation model.
+
+    Attributes
+    ----------
+    condition : dict(str)
+        condition that has to be fulfilled for the incentive to be applied. condition[&#34;Frequency&#34;] can either be &#34;Every Time&#34; or &#34;First Time&#34; (the incentive is run every step or only during the initial step?). condition[&#34;Type&#34;] can either be &#34;By Periodicity&#34; or &#34;By Value&#34; (the incentive is run periodically, or only if the agents fulfill a certain condition?).     # +condition[&#34;Attribute Name&#34;] = Attribute name of the agent to be compared in the condition. condition[&#34;Comparator&#34;] can either be &#34;More Than&#34; or &#34;Less Than&#34;. condition[&#34;Reference Value&#34;] is the value that the attribute will be compared with
+    incentive : dict(str|int)
+        incentive to be given if the condition is fulfilled. incentive[&#34;Attribute&#34;] is the name of the agent&#39;s attribute to be changed. incentive[&#34;Value&#34;] is the positive or negative value to be incremented or decremented to the attribute.
+    order : str
+        tells if the incentive is to be run before or after the CoordinationMechanism stage.
+&#34;&#34;&#34;
+    
+    def __init__(self, condition, incentive, order):  
+        &#34;&#34;&#34;Incentive constructor&#34;&#34;&#34;
+        
+        self.condition = condition
+        self.incentive = incentive
+        self.order = order
+    
+    def checkCondition(self, participant, step):
+        &#34;&#34;&#34;Checks if a certain participant fulfills the defined condition &#34;&#34;&#34;
+        
+        if self.condition[&#34;Frequency&#34;] == &#34;First Time&#34;:
+            if step != 1:
+                return False
+        elif self.condition[&#34;Frequency&#34;] != &#34;Every Time&#34;:
+            print(&#34;ERROR: Wrong condition frequency.&#34;)
+            return False
+        
+        if self.condition[&#34;Type&#34;] == &#34;By Periodicity&#34;:
+            return True
+        elif self.condition[&#34;Type&#34;] == &#34;By Value&#34;:
+            try:
+                attributeValue = getattr(participant, self.condition[&#34;Attribute Name&#34;])
+            except:
+                print(&#34;ERROR: Wrong condition attribute.&#34;)
+                return False
+            if self.condition[&#34;Comparator&#34;] == &#34;More Than&#34;:
+                return (attributeValue &gt;= int(self.condition[&#34;Reference Value&#34;]))
+            elif self.condition[&#34;Comparator&#34;] == &#34;Less Than&#34;:
+                return (attributeValue &lt; int(self.condition[&#34;Reference Value&#34;]))
+        else:
+            print(&#34;ERROR: Wrong condition type.&#34;)
+            return False
+        
+    def getValue(self):
+        return self.incentive[&#34;Value&#34;]
+        
+    def getAttribute(self):
+        return self.incentive[&#34;Attribute&#34;]</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="CarbonMarket.Incentive.checkCondition"><code class="name flex">
+<span>def <span class="ident">checkCondition</span></span>(<span>self, participant, step)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if a certain participant fulfills the defined condition</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def checkCondition(self, participant, step):
+    &#34;&#34;&#34;Checks if a certain participant fulfills the defined condition &#34;&#34;&#34;
+    
+    if self.condition[&#34;Frequency&#34;] == &#34;First Time&#34;:
+        if step != 1:
+            return False
+    elif self.condition[&#34;Frequency&#34;] != &#34;Every Time&#34;:
+        print(&#34;ERROR: Wrong condition frequency.&#34;)
+        return False
+    
+    if self.condition[&#34;Type&#34;] == &#34;By Periodicity&#34;:
+        return True
+    elif self.condition[&#34;Type&#34;] == &#34;By Value&#34;:
+        try:
+            attributeValue = getattr(participant, self.condition[&#34;Attribute Name&#34;])
+        except:
+            print(&#34;ERROR: Wrong condition attribute.&#34;)
+            return False
+        if self.condition[&#34;Comparator&#34;] == &#34;More Than&#34;:
+            return (attributeValue &gt;= int(self.condition[&#34;Reference Value&#34;]))
+        elif self.condition[&#34;Comparator&#34;] == &#34;Less Than&#34;:
+            return (attributeValue &lt; int(self.condition[&#34;Reference Value&#34;]))
+    else:
+        print(&#34;ERROR: Wrong condition type.&#34;)
+        return False</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.Incentive.getAttribute"><code class="name flex">
+<span>def <span class="ident">getAttribute</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAttribute(self):
+    return self.incentive[&#34;Attribute&#34;]</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.Incentive.getValue"><code class="name flex">
+<span>def <span class="ident">getValue</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getValue(self):
+    return self.incentive[&#34;Value&#34;]</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="CarbonMarket.Participant"><code class="flex name class">
+<span>class <span class="ident">Participant</span></span>
+<span>(</span><span>model, participantID, participantProperties, initialAttributes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class used to represent a participant agent in a carbon market model.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>myRegulators</code></strong> :&ensp;<code>list</code></dt>
+<dd>a list of objects of the Regulator class agent type that regulate the agent</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>type of the agent</dd>
+<dt><strong><code>priceReasoning</code></strong> :&ensp;<code>str</code></dt>
+<dd>logic by which the agent will define its price for a certain tradable token. Can either be "Fixed Price" or "Price Function"</dd>
+<dt><strong><code>myPrice</code></strong> :&ensp;<code>int </code></dt>
+<dd>current price of an unit of a tradable token in the conception of the agent</dd>
+<dt><strong><code>hasDecision</code></strong> :&ensp;<code>bool</code></dt>
+<dd>defines if the agent has to perform a decision before the CoordinationMechanism stage or not</dd>
+</dl>
+<p>Participant agent constructor</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Participant(Agent):
+    &#34;&#34;&#34;
+    A class used to represent a participant agent in a carbon market model.
+
+    Attributes
+    ----------
+    myRegulators : list
+        a list of objects of the Regulator class agent type that regulate the agent
+    type : str
+        type of the agent
+    priceReasoning : str
+        logic by which the agent will define its price for a certain tradable token. Can either be &#34;Fixed Price&#34; or &#34;Price Function&#34;
+    myPrice : int 
+        current price of an unit of a tradable token in the conception of the agent
+    hasDecision : bool
+        defines if the agent has to perform a decision before the CoordinationMechanism stage or not
+    &#34;&#34;&#34; 
+      
+    def __init__(self, model, participantID, participantProperties, initialAttributes):
+        &#34;&#34;&#34;Participant agent constructor&#34;&#34;&#34;
+        
+        super().__init__(participantID, model)   
+        self.myRegulators = []
+        self.type = participantProperties[&#34;Type&#34;]
+        self.priceReasoning = participantProperties[&#34;Price Reasoning&#34;]
+        self.myPrice = participantProperties[&#34;Initial Price&#34;] #fixed price or initial price
+        self.hasDecision = participantProperties[&#34;Decision&#34;]
+                        
+        for attributeName in initialAttributes:
+            setattr(self, attributeName, initialAttributes[attributeName])
+        
+    def addRegulator(self, regulator):
+        &#34;&#34;&#34;Defines a regulator to the Participant agent&#34;&#34;&#34;
+        self.myRegulators.append(regulator)
+            
+    #virtual method
+    def priceFunction(self):
+        &#34;&#34;&#34;Results in a price for a unit of tradable token (Virtual method)&#34;&#34;&#34;
+        raise NotImplementedError()
+        
+    def decision(self):
+        &#34;&#34;&#34;Method to be implemented if the agents has to perform a certain action before the CoordinationMechanism stage (Virtual method)&#34;&#34;&#34;
+        raise NotImplementedError()
+            
+    def getBid(self):
+        &#34;&#34;&#34;Results in an auction bid&#34;&#34;&#34;
+        
+        price = self.getBidPrice()
+        volume = self.getBidVolume()
+        bid = {&#39;buyerId&#39;: self.unique_id, &#39;bidPrice&#39;: price, &#39;bidVolume&#39;: volume}
+        return bid
+        
+    def getBidPrice(self):
+        &#34;&#34;&#34;Returns the price of an unit in an auction bid according to the designated price logic in the constructor&#34;&#34;&#34;
+        
+        if self.priceReasoning == &#34;Fixed Price&#34;:
+            return self.myPrice
+        elif self.priceReasoning == &#34;Price Function&#34;:
+            return self.priceFunction() 
+        else:
+            print(&#34;ERROR: Wrong price reasoning.&#34;)
+            return False
+        
+    def getBidVolume(self):
+        &#34;&#34;&#34;Returns the quantity that the agent is willing to trade&#34;&#34;&#34;
+        
+        return (self.Emissions - self.Credits)
+        
+    def isBidding(self):
+        &#34;&#34;&#34;Informs if the agent is willing to bid in an auction or not&#34;&#34;&#34;
+        
+        return (self.Emissions &gt; self.Credits)
+                
+    def changeAttribute(self, attributeName, value):
+        &#34;&#34;&#34;Increments or decrements a custom attribute by a certain value&#34;&#34;&#34;
+        
+        newValue = getattr(self, attributeName) + int(value)
+        setattr(self, attributeName, newValue)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>mesa.agent.Agent</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="CarbonMarket.CustomParticipant" href="#CarbonMarket.CustomParticipant">CustomParticipant</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="CarbonMarket.Participant.addRegulator"><code class="name flex">
+<span>def <span class="ident">addRegulator</span></span>(<span>self, regulator)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a regulator to the Participant agent</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addRegulator(self, regulator):
+    &#34;&#34;&#34;Defines a regulator to the Participant agent&#34;&#34;&#34;
+    self.myRegulators.append(regulator)</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.Participant.changeAttribute"><code class="name flex">
+<span>def <span class="ident">changeAttribute</span></span>(<span>self, attributeName, value)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Increments or decrements a custom attribute by a certain value</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def changeAttribute(self, attributeName, value):
+    &#34;&#34;&#34;Increments or decrements a custom attribute by a certain value&#34;&#34;&#34;
+    
+    newValue = getattr(self, attributeName) + int(value)
+    setattr(self, attributeName, newValue)</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.Participant.decision"><code class="name flex">
+<span>def <span class="ident">decision</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Method to be implemented if the agents has to perform a certain action before the CoordinationMechanism stage (Virtual method)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def decision(self):
+    &#34;&#34;&#34;Method to be implemented if the agents has to perform a certain action before the CoordinationMechanism stage (Virtual method)&#34;&#34;&#34;
+    raise NotImplementedError()</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.Participant.getBid"><code class="name flex">
+<span>def <span class="ident">getBid</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Results in an auction bid</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBid(self):
+    &#34;&#34;&#34;Results in an auction bid&#34;&#34;&#34;
+    
+    price = self.getBidPrice()
+    volume = self.getBidVolume()
+    bid = {&#39;buyerId&#39;: self.unique_id, &#39;bidPrice&#39;: price, &#39;bidVolume&#39;: volume}
+    return bid</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.Participant.getBidPrice"><code class="name flex">
+<span>def <span class="ident">getBidPrice</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the price of an unit in an auction bid according to the designated price logic in the constructor</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBidPrice(self):
+    &#34;&#34;&#34;Returns the price of an unit in an auction bid according to the designated price logic in the constructor&#34;&#34;&#34;
+    
+    if self.priceReasoning == &#34;Fixed Price&#34;:
+        return self.myPrice
+    elif self.priceReasoning == &#34;Price Function&#34;:
+        return self.priceFunction() 
+    else:
+        print(&#34;ERROR: Wrong price reasoning.&#34;)
+        return False</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.Participant.getBidVolume"><code class="name flex">
+<span>def <span class="ident">getBidVolume</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the quantity that the agent is willing to trade</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBidVolume(self):
+    &#34;&#34;&#34;Returns the quantity that the agent is willing to trade&#34;&#34;&#34;
+    
+    return (self.Emissions - self.Credits)</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.Participant.isBidding"><code class="name flex">
+<span>def <span class="ident">isBidding</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Informs if the agent is willing to bid in an auction or not</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isBidding(self):
+    &#34;&#34;&#34;Informs if the agent is willing to bid in an auction or not&#34;&#34;&#34;
+    
+    return (self.Emissions &gt; self.Credits)</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.Participant.priceFunction"><code class="name flex">
+<span>def <span class="ident">priceFunction</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Results in a price for a unit of tradable token (Virtual method)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def priceFunction(self):
+    &#34;&#34;&#34;Results in a price for a unit of tradable token (Virtual method)&#34;&#34;&#34;
+    raise NotImplementedError()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="CarbonMarket.Regulator"><code class="flex name class">
+<span>class <span class="ident">Regulator</span></span>
+<span>(</span><span>regulatorID, regulatorProperties, model)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class used to represent a regulator agent in a carbon market simulation model.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>priority</code></strong> :&ensp;<code>int</code></dt>
+<dd>a value that establishes the order by which Regulator agent actions will be executed</dd>
+<dt><strong><code>myParticipants</code></strong> :&ensp;<code>list</code></dt>
+<dd>list of Participant agents being regulated by this agent</dd>
+<dt><strong><code>myMechanisms</code></strong> :&ensp;<code>list</code></dt>
+<dd>list of CoordinationMechanism to be executed by this agent</dd>
+<dt><strong><code>myIncentivesBefore</code></strong> :&ensp;<code>list</code></dt>
+<dd>list of Incenive to be executed before the CoordinationMechanism stage</dd>
+<dt><strong><code>myIncentivesAfter</code></strong> :&ensp;<code>list</code></dt>
+<dd>list of Incenive to be executed before the CoordinationMechanism stage</dd>
+</dl>
+<p>Regulator agent constructor</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Regulator(Agent):
+    &#34;&#34;&#34;
+    A class used to represent a regulator agent in a carbon market simulation model.
+
+    Attributes
+    ----------
+    priority : int
+        a value that establishes the order by which Regulator agent actions will be executed
+    myParticipants : list
+        list of Participant agents being regulated by this agent
+    myMechanisms : list
+        list of CoordinationMechanism to be executed by this agent
+    myIncentivesBefore : list
+        list of Incenive to be executed before the CoordinationMechanism stage
+    myIncentivesAfter : list
+        list of Incenive to be executed before the CoordinationMechanism stage
+    &#34;&#34;&#34;
+            
+    def __init__(self, regulatorID, regulatorProperties, model):
+        &#34;&#34;&#34;Regulator agent constructor&#34;&#34;&#34;
+        
+        super().__init__(regulatorID, model)
+        self.priority = regulatorProperties[&#34;Priority&#34;]
+        self.myParticipants = []
+        self.myMechanisms = []
+        self.myIncentivesBefore = []
+        self.myIncentivesAfter = []
+        
+    def addParticipant(self, participant):
+        &#34;&#34;&#34;Defines a regulatory relationship with a Participant agent&#34;&#34;&#34;
+        
+        self.myParticipants.append(participant)
+        
+    def addMechanism(self, mechanism):
+        &#34;&#34;&#34;Adds a CoordinationMechanism to be executed by this agent&#34;&#34;&#34;
+        
+        self.myMechanisms.append(mechanism)
+        self.myMechanisms.sort(key=lambda x: x.sequence)
+        
+    #incentives can be given either before or after the coordination mechanism phase        
+    def addIncentive(self, incentive):
+        &#34;&#34;&#34;Adds an Incentive to be executed by this agent&#34;&#34;&#34;
+        
+        if incentive.order == &#34;Before&#34;:
+            self.myIncentivesBefore.append(incentive)
+        elif incentive.order == &#34;After&#34;:
+            self.myIncentivesAfter.append(incentive)
+        else:
+            print(&#34;ERROR: Wrong incentive order.&#34;)
+            
+    def getSellingVolume(self):
+        &#34;&#34;&#34;Determines the quantity of tradable tokens to be sold during a single step by the Regulator&#34;&#34;&#34;
+        
+        return self.model.initialEmissions * 0.9
+        
+    def run(self, step):
+        &#34;&#34;&#34;Executes Incentive(s), Participant agents&#39; decisions and CoordinationMechanism(s) that are related ONLY with its own Partipant(s)   &#34;&#34;&#34;
+        
+        for incentive in self.myIncentivesBefore:
+                for participant in self.myParticipants:
+                    if incentive.checkCondition(participant, step):
+                        participant.changeAttribute(incentive.getAttribute(), incentive.getValue())
+                        
+        for participant in self.myParticipants:
+            if participant.hasDecision:
+                participant.decision()
+                        
+        for mechanism in self.myMechanisms:
+            mechanism.run(self.myParticipants)
+            
+        for incentive in self.myIncentivesAfter:
+                for participant in self.myParticipants:
+                    if incentive.checkCondition(participant, step):
+                        participant.changeAttribute(incentive.getAttribute(), incentive.getValue())</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>mesa.agent.Agent</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="CarbonMarket.Regulator.addIncentive"><code class="name flex">
+<span>def <span class="ident">addIncentive</span></span>(<span>self, incentive)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds an Incentive to be executed by this agent</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addIncentive(self, incentive):
+    &#34;&#34;&#34;Adds an Incentive to be executed by this agent&#34;&#34;&#34;
+    
+    if incentive.order == &#34;Before&#34;:
+        self.myIncentivesBefore.append(incentive)
+    elif incentive.order == &#34;After&#34;:
+        self.myIncentivesAfter.append(incentive)
+    else:
+        print(&#34;ERROR: Wrong incentive order.&#34;)</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.Regulator.addMechanism"><code class="name flex">
+<span>def <span class="ident">addMechanism</span></span>(<span>self, mechanism)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds a CoordinationMechanism to be executed by this agent</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addMechanism(self, mechanism):
+    &#34;&#34;&#34;Adds a CoordinationMechanism to be executed by this agent&#34;&#34;&#34;
+    
+    self.myMechanisms.append(mechanism)
+    self.myMechanisms.sort(key=lambda x: x.sequence)</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.Regulator.addParticipant"><code class="name flex">
+<span>def <span class="ident">addParticipant</span></span>(<span>self, participant)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a regulatory relationship with a Participant agent</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addParticipant(self, participant):
+    &#34;&#34;&#34;Defines a regulatory relationship with a Participant agent&#34;&#34;&#34;
+    
+    self.myParticipants.append(participant)</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.Regulator.getSellingVolume"><code class="name flex">
+<span>def <span class="ident">getSellingVolume</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Determines the quantity of tradable tokens to be sold during a single step by the Regulator</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSellingVolume(self):
+    &#34;&#34;&#34;Determines the quantity of tradable tokens to be sold during a single step by the Regulator&#34;&#34;&#34;
+    
+    return self.model.initialEmissions * 0.9</code></pre>
+</details>
+</dd>
+<dt id="CarbonMarket.Regulator.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>self, step)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Executes Incentive(s), Participant agents' decisions and CoordinationMechanism(s) that are related ONLY with its own Partipant(s)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(self, step):
+    &#34;&#34;&#34;Executes Incentive(s), Participant agents&#39; decisions and CoordinationMechanism(s) that are related ONLY with its own Partipant(s)   &#34;&#34;&#34;
+    
+    for incentive in self.myIncentivesBefore:
+            for participant in self.myParticipants:
+                if incentive.checkCondition(participant, step):
+                    participant.changeAttribute(incentive.getAttribute(), incentive.getValue())
+                    
+    for participant in self.myParticipants:
+        if participant.hasDecision:
+            participant.decision()
+                    
+    for mechanism in self.myMechanisms:
+        mechanism.run(self.myParticipants)
+        
+    for incentive in self.myIncentivesAfter:
+            for participant in self.myParticipants:
+                if incentive.checkCondition(participant, step):
+                    participant.changeAttribute(incentive.getAttribute(), incentive.getValue())</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="CarbonMarket.CoordinationMechanism" href="#CarbonMarket.CoordinationMechanism">CoordinationMechanism</a></code></h4>
+<ul class="">
+<li><code><a title="CarbonMarket.CoordinationMechanism.orderByBidPrice" href="#CarbonMarket.CoordinationMechanism.orderByBidPrice">orderByBidPrice</a></code></li>
+<li><code><a title="CarbonMarket.CoordinationMechanism.run" href="#CarbonMarket.CoordinationMechanism.run">run</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="CarbonMarket.CustomModel" href="#CarbonMarket.CustomModel">CustomModel</a></code></h4>
+<ul class="">
+<li><code><a title="CarbonMarket.CustomModel.addIncentiveToRegulator" href="#CarbonMarket.CustomModel.addIncentiveToRegulator">addIncentiveToRegulator</a></code></li>
+<li><code><a title="CarbonMarket.CustomModel.addMechanismObjectToRegulator" href="#CarbonMarket.CustomModel.addMechanismObjectToRegulator">addMechanismObjectToRegulator</a></code></li>
+<li><code><a title="CarbonMarket.CustomModel.addMechanismToRegulator" href="#CarbonMarket.CustomModel.addMechanismToRegulator">addMechanismToRegulator</a></code></li>
+<li><code><a title="CarbonMarket.CustomModel.addMultipleParticipants" href="#CarbonMarket.CustomModel.addMultipleParticipants">addMultipleParticipants</a></code></li>
+<li><code><a title="CarbonMarket.CustomModel.addMultipleParticipantsObject" href="#CarbonMarket.CustomModel.addMultipleParticipantsObject">addMultipleParticipantsObject</a></code></li>
+<li><code><a title="CarbonMarket.CustomModel.addParticipant" href="#CarbonMarket.CustomModel.addParticipant">addParticipant</a></code></li>
+<li><code><a title="CarbonMarket.CustomModel.addParticipantObject" href="#CarbonMarket.CustomModel.addParticipantObject">addParticipantObject</a></code></li>
+<li><code><a title="CarbonMarket.CustomModel.addParticipantRegulatorRelationship" href="#CarbonMarket.CustomModel.addParticipantRegulatorRelationship">addParticipantRegulatorRelationship</a></code></li>
+<li><code><a title="CarbonMarket.CustomModel.addRegulator" href="#CarbonMarket.CustomModel.addRegulator">addRegulator</a></code></li>
+<li><code><a title="CarbonMarket.CustomModel.addRegulatorObject" href="#CarbonMarket.CustomModel.addRegulatorObject">addRegulatorObject</a></code></li>
+<li><code><a title="CarbonMarket.CustomModel.random" href="#CarbonMarket.CustomModel.random">random</a></code></li>
+<li><code><a title="CarbonMarket.CustomModel.step" href="#CarbonMarket.CustomModel.step">step</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="CarbonMarket.CustomParticipant" href="#CarbonMarket.CustomParticipant">CustomParticipant</a></code></h4>
+</li>
+<li>
+<h4><code><a title="CarbonMarket.Incentive" href="#CarbonMarket.Incentive">Incentive</a></code></h4>
+<ul class="">
+<li><code><a title="CarbonMarket.Incentive.checkCondition" href="#CarbonMarket.Incentive.checkCondition">checkCondition</a></code></li>
+<li><code><a title="CarbonMarket.Incentive.getAttribute" href="#CarbonMarket.Incentive.getAttribute">getAttribute</a></code></li>
+<li><code><a title="CarbonMarket.Incentive.getValue" href="#CarbonMarket.Incentive.getValue">getValue</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="CarbonMarket.Participant" href="#CarbonMarket.Participant">Participant</a></code></h4>
+<ul class="two-column">
+<li><code><a title="CarbonMarket.Participant.addRegulator" href="#CarbonMarket.Participant.addRegulator">addRegulator</a></code></li>
+<li><code><a title="CarbonMarket.Participant.changeAttribute" href="#CarbonMarket.Participant.changeAttribute">changeAttribute</a></code></li>
+<li><code><a title="CarbonMarket.Participant.decision" href="#CarbonMarket.Participant.decision">decision</a></code></li>
+<li><code><a title="CarbonMarket.Participant.getBid" href="#CarbonMarket.Participant.getBid">getBid</a></code></li>
+<li><code><a title="CarbonMarket.Participant.getBidPrice" href="#CarbonMarket.Participant.getBidPrice">getBidPrice</a></code></li>
+<li><code><a title="CarbonMarket.Participant.getBidVolume" href="#CarbonMarket.Participant.getBidVolume">getBidVolume</a></code></li>
+<li><code><a title="CarbonMarket.Participant.isBidding" href="#CarbonMarket.Participant.isBidding">isBidding</a></code></li>
+<li><code><a title="CarbonMarket.Participant.priceFunction" href="#CarbonMarket.Participant.priceFunction">priceFunction</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="CarbonMarket.Regulator" href="#CarbonMarket.Regulator">Regulator</a></code></h4>
+<ul class="">
+<li><code><a title="CarbonMarket.Regulator.addIncentive" href="#CarbonMarket.Regulator.addIncentive">addIncentive</a></code></li>
+<li><code><a title="CarbonMarket.Regulator.addMechanism" href="#CarbonMarket.Regulator.addMechanism">addMechanism</a></code></li>
+<li><code><a title="CarbonMarket.Regulator.addParticipant" href="#CarbonMarket.Regulator.addParticipant">addParticipant</a></code></li>
+<li><code><a title="CarbonMarket.Regulator.getSellingVolume" href="#CarbonMarket.Regulator.getSellingVolume">getSellingVolume</a></code></li>
+<li><code><a title="CarbonMarket.Regulator.run" href="#CarbonMarket.Regulator.run">run</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
