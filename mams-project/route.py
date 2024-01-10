@@ -12,6 +12,8 @@ class Route:
     alpha: float = 2
     queue_exit: dict = (field(default_factory=lambda:{}))
     
+    def reset(self):
+        self.queue_exit = {}
 
     def time_out(self, step=0) -> float:
 
@@ -25,9 +27,10 @@ class Route:
 
     def step(self, current_step):
         if current_step in self.queue_exit.keys():
-            print(f"Release in {current_step} from {self.name}")
-            for event in self.queue_exit[current_step]:
+            for id, event in self.queue_exit[current_step]:
                 event()
+            
+            print(f"Release agent #{id} in {current_step} from {self.name}")
 
 def main():
     #time_min, volume, capacity
