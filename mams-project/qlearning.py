@@ -1,6 +1,6 @@
 import numpy as np
 import random
-
+from configuration import *
 
 class Qlearning():
 
@@ -10,22 +10,22 @@ class Qlearning():
         self.action_space_size = action_space_size        
         
         # Training parameters
-        self.n_training_episodes = 100
-        self.learning_rate = 0.7        
+        self.n_training_episodes = N_TRAINING_EPISODES
+        self.learning_rate = LEARNING_RATE      
 
         # Evaluation parameters
-        self.n_eval_episodes = 100     
+        self.n_eval_episodes = N_EVAL_EPISODES     
 
         # Environment parameters
         #self.env_id = "FrozenLake-v1"   
-        self.max_steps = 99             
-        self.gamma = 0.95               
+        self.max_steps = MAX_STEPS             
+        self.gamma = GAMMA               
         self.eval_seed = []             
 
         # Exploration parameters
-        self.max_epsilon = 1.0           
-        self.min_epsilon = 0.05           
-        self.decay_rate = 0.0005         
+        self.max_epsilon = MAX_EPSILON           
+        self.min_epsilon = MIN_EPSILON         
+        self.decay_rate = DECAY_RATE        
 
 
     def initialize_q_table(self):

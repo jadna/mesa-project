@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+from configuration import *
 import math
 
 
@@ -8,8 +9,8 @@ class Route:
     time_min: int
     volume: int
     capacity: int
-    betha: float = 4
-    alpha: float = 2
+    betha: float = BETHA
+    alpha: float = ALPHA
     queue_exit: dict = (field(default_factory=lambda:{}))
     
     def reset(self):
