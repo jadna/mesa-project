@@ -1,7 +1,9 @@
 import random
 import matplotlib.pyplot as plt
+import pandas as pd
 from route import Route
 from qlearning import Qlearning
+from configuration import *
 
 
 class Model():
@@ -54,9 +56,13 @@ class Model():
         return reward
 
 def main():
-    random.seed(10)
+    random.seed(SEED)
 
-    n_agents = 10
+    n_agents = N_AGENTS
+
+    df = pd.read_csv('routes.csv')
+
+     
    
     #time_min, volume, capacity
     route1 = Route("route1", 1, 0, 4)
@@ -64,6 +70,7 @@ def main():
     route3 = Route("route3", 1, 0, 5)
 
     routes = [route1, route2, route3]
+
 
     qlearning = Qlearning(n_agents, len(routes))
     qlearning.initialize_q_table()
