@@ -9,7 +9,7 @@ class Route:
     time_min: int
     volume: int
     capacity: int
-    betha: float = BETHA
+    beta: float = BETA
     alpha: float = ALPHA
     queue_exit: dict = (field(default_factory=lambda:{}))
     
@@ -18,7 +18,7 @@ class Route:
 
     def time_out(self, step=0) -> float:
 
-        time_out = step + self.time_min * (1 + (self.alpha*(self.volume/self.capacity)**self.betha))
+        time_out = step + self.time_min * (1 + (self.alpha*(self.volume/self.capacity)**self.beta))
         print(f"Time Out: {math.ceil(time_out)}")
         return math.ceil(time_out)
 

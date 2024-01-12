@@ -18,10 +18,10 @@ class Model():
         for i in range(n_agents):
             self.queue_entry[i] = self.dispara_agents
 
-        print("Routes:", self.routes)
-        print("Queue Entry:", self.queue_entry)
-        print("Current Step:", self.current_step)
-        print("Volumes:", self.volumes)
+        #print("Routes:", self.routes)
+        #print("Queue Entry:", self.queue_entry)
+        #print("Current Step:", self.current_step)
+        #print("Volumes:", self.volumes)
 
 
 
@@ -56,35 +56,36 @@ class Model():
         return reward
 
 def main():
-    random.seed(SEED)
+    #random.seed(SEED)
 
     n_agents = N_AGENTS
 
-    df = pd.read_csv('routes.csv')
+    routesDF = pd.read_csv('routes.csv')
+    routes = []
 
-     
-   
-    #time_min, volume, capacity
-    route1 = Route("route1", 1, 0, 4)
-    route2 = Route("route2", 1, 0, 7)
-    route3 = Route("route3", 1, 0, 5)
+    for _, route in routesDF.iterrows():
+        routes.append(Route(route["route_name"], route["time_min"], route["volume"], route["capacity"]))
 
-    routes = [route1, route2, route3]
-
-
+ 
     qlearning = Qlearning(n_agents, len(routes))
     qlearning.initialize_q_table()
+    epsilons = []
 
     for i in range(qlearning.n_training_episodes):
         print(f"-------------------- start episode {i} -----------------------------")
         qlearning.update_episolon(i)
+        epsilons.append(qlearning.epsilon)
         model = episode(qlearning, n_agents, routes)
         print(f"-------------------- end   episode {i} -----------------------------")
 
-
+    #plot volume das rotas
     for _,v in model.volumes.items():
         plt.plot(range(len(v)), v)
     plt.legend(model.volumes.keys()) 
+    plt.show()
+
+    #plot epsilos
+    plt.plot(range(len(epsilons)), epsilons)
     plt.show()
 
 
@@ -95,7 +96,7 @@ def episode(qlearning, n_agents,routes):
 
     model = Model(n_agents, routes)
 
-    for i in range(100):
+    for i in range(EPISODES_LENGTH):
         if i < n_agents:
             action = qlearning.epsilon_greedy_policy(i)
         else:
@@ -107,6 +108,14 @@ def episode(qlearning, n_agents,routes):
             reward = model.get_reward()
             print(f"I: {i}, Action: {action}, reward: {reward}")
             qlearning.update_qtable(i, action, i+1, reward)
+
+
+
+    if qlearning.epsilon == MIN_EPSILON:
+        print(f"Epsilon atingiu o minimo: {qlearning.epsilon}")
+
+    print(f"Epsilon: {qlearning.epsilon}")
+
 
     return model
 

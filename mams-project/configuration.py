@@ -1,15 +1,15 @@
 ######################### ROUTE #########################
-
-BETHA = 0.1
-ALPHA = 2
-
+# Valores  da BPR retirados da literatura
+BETA = 0.15
+ALPHA = 4
 
 ######################### QLEARNING #########################
-N_TRAINING_EPISODES = 1
+N_TRAINING_EPISODES = 10000
 LEARNING_RATE = 0.7        
 
 # EVALUATION PARAMETERS
-N_EVAL_EPISODES = 100     
+N_EVAL_EPISODES = 100  #Não está sendo usado
+EPISODES_LENGTH = 500    
 
 # ENVIRONMENT PARAMETERS
 #ENV_ID = "FROZENLAKE-V1"   
@@ -19,10 +19,10 @@ GAMMA = 0.95
 # EXPLORATION PARAMETERS
 MAX_EPSILON = 1.0           
 MIN_EPSILON = 0.05           
-DECAY_RATE = 0.0005 
+DECAY_RATE = 0.0005
 
 ######################### MODEL #########################
-N_AGENTS = 10
+N_AGENTS = 100
 TIME_MIN = 0
 VOLUME = 0
 CAPACITY = 0
