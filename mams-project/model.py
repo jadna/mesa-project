@@ -76,7 +76,7 @@ def main():
         qlearning.update_episolon(i)
         epsilons.append(qlearning.epsilon)
         model = episode(qlearning, n_agents, routes)
-        print(f"-------------------- end   episode {i} -----------------------------")
+        print(f"--------------------- end episode {i} ------------------------------")
 
     #plot volume das rotas
     for _,v in model.volumes.items():

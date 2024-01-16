@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 import random
 from configuration import *
 
@@ -51,5 +52,9 @@ class Qlearning():
         self.epsilon = self.min_epsilon + (self.max_epsilon - self.min_epsilon)*np.exp(-self.decay_rate*episode)
         
     def update_qtable(self, state, action, new_state, reward):
+
         self.Qtable[state][action] = self.Qtable[state][action] + self.learning_rate * (reward + self.gamma * np.max(self.Qtable[new_state]) - self.Qtable[state][action])
+    
+        df = pd.DataFrame(self.Qtable)
+        df.to_csv('data.csv', index=False)
     
