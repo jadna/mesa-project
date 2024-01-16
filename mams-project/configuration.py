@@ -4,7 +4,7 @@ BETA = 0.15
 ALPHA = 4
 
 ######################### QLEARNING #########################
-N_TRAINING_EPISODES = 10000
+N_TRAINING_EPISODES = 10
 LEARNING_RATE = 0.7        
 
 # EVALUATION PARAMETERS

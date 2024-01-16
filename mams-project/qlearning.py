@@ -56,5 +56,6 @@ class Qlearning():
         self.Qtable[state][action] = self.Qtable[state][action] + self.learning_rate * (reward + self.gamma * np.max(self.Qtable[new_state]) - self.Qtable[state][action])
     
         df = pd.DataFrame(self.Qtable)
-        df.to_csv('data.csv', index=False)
+        df["route"] = df.apply(np.argmax, axis=1)
+        df.to_csv('./data/qlearning.csv', index=False)
     

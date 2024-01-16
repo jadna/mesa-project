@@ -4,6 +4,8 @@ import pandas as pd
 from route import Route
 from qlearning import Qlearning
 from configuration import *
+from agent import *
+import numpy as np
 
 
 class Model():
@@ -16,7 +18,9 @@ class Model():
         self.volumes = {r.name:[] for r in routes}
 
         for i in range(n_agents):
-            self.queue_entry[i] = self.dispara_agents
+            #self.queue_entry[i] = self.dispara_agents
+            agente = Agents(self)
+            self.queue_entry[i] = agente.dispara_agente
 
         #print("Routes:", self.routes)
         #print("Queue Entry:", self.queue_entry)
@@ -37,7 +41,7 @@ class Model():
         self.current_step += 1
         
 
-    def dispara_agents(self, action):
+    """def dispara_agents(self, action):
 
 
         route = self.routes[action]
@@ -48,11 +52,12 @@ class Model():
         else:
             route.queue_exit[time_out] = [(self.current_step, route.release_volume)]
 
-        print(f"No tempos {self.current_step} adicionou o agente #{self.current_step} na rota {route.name}")
+        print(f"No tempos {self.current_step} adicionou o agente #{self.current_step} na rota {route.name}")"""
 
     def get_reward(self):
         
         reward = -sum([route.volume/route.capacity for route in self.routes])
+        #reward = 999999-sum([route.volume/route.capacity for route in self.routes])
         return reward
 
 def main():
@@ -60,7 +65,7 @@ def main():
 
     n_agents = N_AGENTS
 
-    routesDF = pd.read_csv('routes.csv')
+    routesDF = pd.read_csv('./data/routes.csv')
     routes = []
 
     for _, route in routesDF.iterrows():
@@ -71,12 +76,23 @@ def main():
     qlearning.initialize_q_table()
     epsilons = []
 
+    rewards = np.zeros((n_agents,1))
+
     for i in range(qlearning.n_training_episodes):
         print(f"-------------------- start episode {i} -----------------------------")
         qlearning.update_episolon(i)
         epsilons.append(qlearning.epsilon)
         model = episode(qlearning, n_agents, routes)
         print(f"--------------------- end episode {i} ------------------------------")
+
+        #Rewards pelo quantidade de episodios
+        rwrds = np.array([[max(row)] for row in qlearning.Qtable])
+        rewards = np.hstack((rewards, rwrds))
+        
+    print(rewards)
+    df = pd.DataFrame(rewards)
+    df.to_csv('./data/rewards.csv', index=False)
+    #return
 
     #plot volume das rotas
     for _,v in model.volumes.items():
@@ -86,6 +102,9 @@ def main():
 
     #plot epsilos
     plt.plot(range(len(epsilons)), epsilons)
+    plt.show()
+
+    plt.plot(rewards)
     plt.show()
 
 
