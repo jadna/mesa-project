@@ -15,7 +15,7 @@ class Qlearning():
         self.learning_rate = LEARNING_RATE      
 
         # Evaluation parameters
-        self.n_eval_episodes = N_EVAL_EPISODES     
+        #self.n_eval_episodes = N_EVAL_EPISODES     
 
         # Environment parameters
         #self.env_id = "FrozenLake-v1"   

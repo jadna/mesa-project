@@ -76,6 +76,7 @@ def main():
     epsilons = []
 
     rewards = np.zeros((n_agents,1))
+    rewards_sum = []
 
     for i in range(qlearning.n_training_episodes):
         print(f"-------------------- start episode {i} -----------------------------")
@@ -87,6 +88,9 @@ def main():
         #Rewards pelo quantidade de episodios
         rwrds = np.array([[max(row)] for row in qlearning.Qtable])
         rewards = np.hstack((rewards, rwrds))
+        # UM rewards
+        rwrds_sum = sum(np.array([[max(row)] for row in qlearning.Qtable]))
+        rewards_sum.append(rwrds_sum)
         
     df = pd.DataFrame(rewards)
     df.to_csv('./data/rewards.csv', index=False)
@@ -102,7 +106,12 @@ def main():
     plt.plot(range(len(epsilons)), epsilons)
     plt.show()
 
+    #rewards
     plt.plot(rewards.T)
+    plt.show()
+
+    #Soma dos rewards
+    plt.plot(range(len(rewards_sum)), rewards_sum)
     plt.show()
 
 
