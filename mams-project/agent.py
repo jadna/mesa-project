@@ -22,10 +22,8 @@ class Agents:
 
         if time_out in route.queue_exit.keys():
             route.queue_exit[time_out].append((step, route.release_volume))
-            print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ", step)
         else:
             route.queue_exit[time_out] = [(step, route.release_volume)]
-            print("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB: ", step)
 
         print(f"No tempo {step} adicionou o agente #{step} na rota {route.name}")
 
