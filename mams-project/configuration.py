@@ -4,12 +4,12 @@ BETA = 0.15
 ALPHA = 4
 
 ######################### QLEARNING #########################
-N_TRAINING_EPISODES = 10
+N_TRAINING_EPISODES = 1000
 LEARNING_RATE = 0.7        
 
 # EVALUATION PARAMETERS
-N_EVAL_EPISODES = 100  #Não está sendo usado
-EPISODES_LENGTH = 500    
+#N_EVAL_EPISODES = 100  #Não está sendo usado
+EPISODES_LENGTH = 250    
 
 # ENVIRONMENT PARAMETERS
 #ENV_ID = "FROZENLAKE-V1"   

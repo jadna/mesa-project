@@ -27,18 +27,17 @@ class Model():
         #print("Current Step:", self.current_step)
         #print("Volumes:", self.volumes)
 
-
-
     def step(self, action):
-        
+        time_out = None
         if self.current_step in self.queue_entry.keys():
-            self.queue_entry[self.current_step](action)
+            time_out = self.queue_entry[self.current_step](action, self.current_step)
 
         for route in self.routes:
             route.step(self.current_step)
 
             self.volumes[route.name].append(route.volume)
         self.current_step += 1
+        return time_out
         
 
     """def dispara_agents(self, action):
@@ -54,10 +53,11 @@ class Model():
 
         print(f"No tempos {self.current_step} adicionou o agente #{self.current_step} na rota {route.name}")"""
 
-    def get_reward(self):
-        
-        reward = -sum([route.volume/route.capacity for route in self.routes])
+    def get_reward(self, time_out):
+
+        #reward = -sum([route.volume/route.capacity for route in self.routes])
         #reward = 999999-sum([route.volume/route.capacity for route in self.routes])
+        reward = 1/time_out
         return reward
 
 def main():
@@ -71,7 +71,6 @@ def main():
     for _, route in routesDF.iterrows():
         routes.append(Route(route["route_name"], route["time_min"], route["volume"], route["capacity"]))
 
- 
     qlearning = Qlearning(n_agents, len(routes))
     qlearning.initialize_q_table()
     epsilons = []
@@ -89,7 +88,6 @@ def main():
         rwrds = np.array([[max(row)] for row in qlearning.Qtable])
         rewards = np.hstack((rewards, rwrds))
         
-    print(rewards)
     df = pd.DataFrame(rewards)
     df.to_csv('./data/rewards.csv', index=False)
     #return
@@ -104,7 +102,7 @@ def main():
     plt.plot(range(len(epsilons)), epsilons)
     plt.show()
 
-    plt.plot(rewards)
+    plt.plot(rewards.T)
     plt.show()
 
 
@@ -121,10 +119,10 @@ def episode(qlearning, n_agents,routes):
         else:
             action = None
         
-        model.step(action)
+        time_out = model.step(action)
 
-        if i < n_agents-1:
-            reward = model.get_reward()
+        if i < n_agents-1 and time_out != None:
+            reward = model.get_reward(time_out)
             print(f"I: {i}, Action: {action}, reward: {reward}")
             qlearning.update_qtable(i, action, i+1, reward)
 
