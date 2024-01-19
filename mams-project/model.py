@@ -17,6 +17,7 @@ class Model():
         self.current_step = 0
         self.volumes = {r.name:[] for r in routes}
         self.times = {r.name:[] for r in routes}
+        self.timeAgents = []
 
         for i in range(n_agents):
             #self.queue_entry[i] = self.dispara_agents
@@ -65,6 +66,8 @@ def main(n_agents):
         rewards = np.zeros((n_agents,1))
         rewards_sum = []
 
+        timeAgente = np.zeros((1,n_agents))
+
         timesMeans = {r.name:[] for r in routes}
 
         for i in range(qlearning.n_training_episodes):
@@ -81,9 +84,13 @@ def main(n_agents):
             #Rewards pelo quantidade de episodios
             rwrds = np.array([[max(row)] for row in qlearning.Qtable])
             rewards = np.hstack((rewards, rwrds))
-            # UM rewards
+           
+            # SUM rewards
             rwrds_sum = sum(np.array([[max(row)] for row in qlearning.Qtable]))
             rewards_sum.append(rwrds_sum)
+
+            #Time agents for episode
+            timeAgent = np.vstack((timeAgente, model.timeAgents))
 
             # Mean time for episodes
             for routeName, timesList in model.times.items():
@@ -130,11 +137,20 @@ def main(n_agents):
         # Mean for time for episodes
         for routeName, means in timesMeans.items(): 
             plt.plot(range(len(means)), means)
+        plt.legend(timesMeans.keys())
         plt.title("Mean Time per Episode by Routes "+str(n_agents)+" Agents") 
         plt.xlabel("Episodes")
         plt.ylabel("Mean Time")
-        plt.savefig('./data/'+str(scenario)+'/mean_time_episodes_'+str(n_agents)+'_agents.png')
-        plt.legend(timesMeans.keys())
+        plt.savefig('./data/'+str(scenario)+'/mean_time_episodes_'+str(n_agents)+'_agents.png')  
+        plt.clf()
+
+        #Time agents for episode
+        plt.plot(timeAgent)
+        plt.title("Time Agents for Episode "+str(n_agents)+" Agents")
+        plt.xlabel("Episodes")
+        plt.ylabel("Rewards")
+        plt.savefig('./data/'+str(scenario)+'/time_agent_'+str(n_agents)+'_agents.png')
+        #plt.clf()
         plt.show()
     
 

@@ -25,7 +25,7 @@ DECAY_RATE = 0.0005
 
 ######################### MODEL #########################
 #N_AGENTS = [50, 100, 150, 200]
-N_AGENTS = [200]
+N_AGENTS = [50]
 TIME_MIN = 0
 VOLUME = 0
 CAPACITY = 0

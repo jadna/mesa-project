@@ -19,8 +19,8 @@ class Agents:
 
         mte = time_out - step #media_time_episodes (mte)
         self.model.times[route.name].append(mte)
+        self.model.timeAgents.append(mte)
 
-        
         if time_out in route.queue_exit.keys():
             route.queue_exit[time_out].append((step, route.release_volume))
         else:
