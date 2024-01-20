@@ -103,7 +103,7 @@ def main(n_agents):
         for _,v in model.volumes.items():
             plt.plot(range(len(v)), v)
         plt.legend(model.volumes.keys()) 
-        plt.title("Volume of Routes "+str(n_agents)+" Agents") 
+        plt.title("Volume of Routes - "+str(n_agents)+" Agents") 
         plt.xlabel("Time")
         plt.ylabel("Number of agents on the route")
         plt.savefig('./data/'+str(scenario)+'/volume_'+str(n_agents)+'_agents.png')
@@ -111,7 +111,7 @@ def main(n_agents):
         
         #plot epsilons
         plt.plot(range(len(epsilons)), epsilons)
-        plt.title("Epsilon "+str(n_agents)+" Agents") 
+        plt.title("Epsilon - "+str(n_agents)+" Agents") 
         plt.xlabel("Episodes")
         plt.ylabel("Epsilon")
         plt.savefig('./data/'+str(scenario)+'/epsilon_'+str(n_agents)+'_agents.png')
@@ -119,7 +119,7 @@ def main(n_agents):
         
         #rewards
         plt.plot(rewards.T)
-        plt.title("Rewards "+str(n_agents)+" Agents")
+        plt.title("Rewards - "+str(n_agents)+" Agents")
         plt.xlabel("Episodes")
         plt.ylabel("Rewards")
         plt.savefig('./data/'+str(scenario)+'/rewards_'+str(n_agents)+'_agents.png')
@@ -127,7 +127,7 @@ def main(n_agents):
         
         #Sum of rewards
         plt.plot(range(len(rewards_sum)), rewards_sum)
-        plt.title("Sum Rewards "+str(n_agents)+" Agents") 
+        plt.title("Sum Rewards - "+str(n_agents)+" Agents") 
         plt.xlabel("Episodes")
         plt.ylabel("Sum of Rewards")
         plt.savefig('./data/'+str(scenario)+'/sum_rewards_'+str(n_agents)+'_agents.png')
@@ -137,7 +137,7 @@ def main(n_agents):
         for routeName, means in timesMeans.items(): 
             plt.plot(range(len(means)), means)
         plt.legend(timesMeans.keys())
-        plt.title("Mean Time per Episode by Routes "+str(n_agents)+" Agents") 
+        plt.title("Mean Time per Episode by Routes - "+str(n_agents)+" Agents") 
         plt.xlabel("Episodes")
         plt.ylabel("Mean Time")
         plt.savefig('./data/'+str(scenario)+'/mean_time_episodes_'+str(n_agents)+'_agents.png')  
@@ -145,7 +145,7 @@ def main(n_agents):
 
         #Time agents for episode
         plt.plot(timeAgent)
-        plt.title("Time Agents for Episode "+str(n_agents)+" Agents")
+        plt.title("Agent´s Execution Time for Episode - "+str(n_agents)+" Agents")
         plt.xlabel("Episodes")
         plt.ylabel("Time agents")
         plt.savefig('./data/'+str(scenario)+'/time_agent_'+str(n_agents)+'_agents.png')
