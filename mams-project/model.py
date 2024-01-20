@@ -147,7 +147,7 @@ def main(n_agents):
         plt.plot(timeAgent)
         plt.title("Time Agents for Episode "+str(n_agents)+" Agents")
         plt.xlabel("Episodes")
-        plt.ylabel("Rewards")
+        plt.ylabel("Time agents")
         plt.savefig('./data/'+str(scenario)+'/time_agent_'+str(n_agents)+'_agents.png')
         plt.clf()
         #plt.show()
