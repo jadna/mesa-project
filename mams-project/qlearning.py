@@ -15,7 +15,7 @@ class Qlearning():
         self.learning_rate = LEARNING_RATE      
 
         # Evaluation parameters
-        self.n_eval_episodes = N_EVAL_EPISODES     
+        #self.n_eval_episodes = N_EVAL_EPISODES     
 
         # Environment parameters
         #self.env_id = "FrozenLake-v1"   
@@ -51,10 +51,11 @@ class Qlearning():
 
         self.epsilon = self.min_epsilon + (self.max_epsilon - self.min_epsilon)*np.exp(-self.decay_rate*episode)
         
-    def update_qtable(self, state, action, new_state, reward):
+    def update_qtable(self, state, action, new_state, reward, scenario, n_agents):
 
         self.Qtable[state][action] = self.Qtable[state][action] + self.learning_rate * (reward + self.gamma * np.max(self.Qtable[new_state]) - self.Qtable[state][action])
     
         df = pd.DataFrame(self.Qtable)
-        df.to_csv('data.csv', index=False)
+        df["route"] = df.apply(np.argmax, axis=1)
+        df.to_csv('./data/'+str(scenario)+'/qlearning_'+str(n_agents)+'_agents.csv', index=False)
     

@@ -19,7 +19,7 @@ class Route:
     def time_out(self, step=0) -> float:
 
         time_out = step + self.time_min * (1 + (self.alpha*(self.volume/self.capacity)**self.beta))
-        print(f"Time Out: {math.ceil(time_out)}")
+        #print(f"Time Out: {math.ceil(time_out)}")
         return math.ceil(time_out)
 
     def release_volume(self):
@@ -31,7 +31,7 @@ class Route:
             for id, event in self.queue_exit[current_step]:
                 event()
             
-            print(f"Release agent #{id} in {current_step} from {self.name}")
+            #print(f"Release agent #{id} in {current_step} from {self.name}")
 
 def main():
     #time_min, volume, capacity
