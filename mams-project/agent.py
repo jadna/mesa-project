@@ -1,8 +1,4 @@
-from mesa.space import MultiGrid
-from mesa.datacollection import DataCollector
 from model import *
-import random
-
 
 class Agents:
     

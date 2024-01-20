@@ -150,8 +150,8 @@ def main(n_agents):
         plt.xlabel("Episodes")
         plt.ylabel("Rewards")
         plt.savefig('./data/'+str(scenario)+'/time_agent_'+str(n_agents)+'_agents.png')
-        #plt.clf()
-        plt.show()
+        plt.clf()
+        #plt.show()
     
 
 def episode(qlearning, n_agents,routes, scenario):
