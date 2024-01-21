@@ -21,7 +21,7 @@ GAMMA = 0.95
 # EXPLORATION PARAMETERS
 MAX_EPSILON = 1.0           
 MIN_EPSILON = 0.05           
-DECAY_RATE = 0.0005
+DECAY_RATE = 0.02
 
 ######################### MODEL #########################
 N_AGENTS = [50, 100, 150, 200]
@@ -31,4 +31,4 @@ VOLUME = 0
 CAPACITY = 0
 SEED = 10
 SCENARIOS = ["scenario1", "scenario2", "scenario3"]
-#SCENARIOS = ["scenario2"]
+#SCENARIOS = ["scenario3"]
